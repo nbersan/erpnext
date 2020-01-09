@@ -6,5 +6,5 @@ from __future__ import unicode_literals
 # import frappe
 from frappe.model.document import Document
 
-class IsV1Component(Document):
+class ProductType(Document):
 	pass

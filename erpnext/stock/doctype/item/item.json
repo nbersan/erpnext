@@ -19,7 +19,7 @@
   "item_group",
   "is_item_from_hub",
   "stock_uom",
-  "is_v1_comp",
+  "product_type",
   "column_break0",
   "disabled",
   "allow_alternative_item",
@@ -1046,12 +1046,12 @@
    "options": "Item Manufacturer"
   },
   {
-   "fieldname": "is_v1_comp",
+   "fieldname": "product_type",
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Is V1 Comp",
-   "options": "Is V1 Component"
+   "label": "Product Type",
+   "options": "Product Type"
   }
  ],
  "has_web_view": 1,
@@ -1060,7 +1060,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 1,
- "modified": "2020-01-09 14:15:08.611100",
+ "modified": "2020-01-09 14:33:39.188295",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",

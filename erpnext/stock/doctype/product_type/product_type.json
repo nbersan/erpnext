@@ -1,32 +1,32 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "field:is_v1",
+ "autoname": "field:product_type",
  "creation": "2020-01-09 06:30:27.670991",
  "description": "Workflow state represents the current state of a document.",
  "doctype": "DocType",
  "document_type": "Setup",
  "engine": "InnoDB",
  "field_order": [
-  "is_v1"
+  "product_type"
  ],
  "fields": [
   {
-   "fieldname": "is_v1",
+   "fieldname": "product_type",
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Is V1",
+   "label": "Product Type",
    "reqd": 1,
    "unique": 1
   }
  ],
  "icon": "fa fa-flag",
  "links": [],
- "modified": "2020-01-09 14:13:56.288184",
+ "modified": "2020-01-09 14:35:02.392353",
  "modified_by": "Administrator",
  "module": "Stock",
- "name": "Is V1 Component",
+ "name": "Product Type",
  "owner": "Administrator",
  "permissions": [
   {

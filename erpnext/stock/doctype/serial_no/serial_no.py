@@ -77,7 +77,7 @@ class SerialNo(StockController):
 		self.item_name = item.item_name
 		self.brand = item.brand
 		self.warranty_period = item.warranty_period
-		self.is_v1_comp = item.is_v1_comp
+		self.product_type = item.product_type
 
 	def set_purchase_details(self, purchase_sle):
 		if purchase_sle:
