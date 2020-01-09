@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "autoname": "field:serial_state_name",
  "creation": "2019-10-09 15:39:46.794383",
@@ -37,7 +38,8 @@
   }
  ],
  "icon": "fa fa-flag",
- "modified": "2019-10-09 15:41:44.116557",
+ "links": [],
+ "modified": "2020-01-09 14:10:16.147189",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No State",

@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
+ "autoname": "field:is_v1",
  "creation": "2020-01-09 06:30:27.670991",
  "description": "Workflow state represents the current state of a document.",
  "doctype": "DocType",
@@ -12,14 +13,17 @@
  "fields": [
   {
    "fieldname": "is_v1",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Is V1",
-   "options": "Yes\nNo"
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "icon": "fa fa-flag",
  "links": [],
- "modified": "2020-01-09 06:41:04.497489",
+ "modified": "2020-01-09 14:13:56.288184",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Is V1 Component",
