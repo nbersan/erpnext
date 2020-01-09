@@ -1040,10 +1040,12 @@
    "label": "Auto Create Assets on Purchase"
   },
   {
+   "default": "-",
    "fieldname": "is_v1_comp",
    "fieldtype": "Select",
    "label": "Is V1 Component",
-   "options": "Yes\nNo"
+   "options": "-\nYes\nNo",
+   "reqd": 1
   },
   {
    "fieldname": "manufacturers",
@@ -1058,7 +1060,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 1,
- "modified": "2020-01-09 06:44:38.549429",
+ "modified": "2020-01-09 09:19:06.829538",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",

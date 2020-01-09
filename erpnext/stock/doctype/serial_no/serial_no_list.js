@@ -7,7 +7,8 @@ frappe.listview_settings['Serial No'] = {
 			"Broken": "red",
 			"Lost": "red",
 			"On Site": "blue",
-			"To Be Tested": "yellow"
+			"To Be Tested": "yellow",
+			"WIP": "yellow"
 		}[doc.status],"status,=,"+ doc.status];
 	}/*
 		if (doc.status) {
@@ -22,6 +23,6 @@ frappe.listview_settings['Serial No'] = {
 			return [__("On Site"), "blue", "status,=,On Site"];
 		} else if (doc.status) {
 			return [__("To Be Tested"), "yellow", "status,=,To Be Tested"];
-		}
+		} 
 	}*/
 };

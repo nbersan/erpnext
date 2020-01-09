@@ -529,18 +529,19 @@
    "label": "Port"
   },
   {
+   "default": "-",
    "fieldname": "is_v1_comp",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Is V1 Component",
-   "options": "Yes\nNo"
+   "options": "-\nYes\nNo"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-01-09 06:45:07.593521",
+ "modified": "2020-01-09 09:02:08.233735",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
