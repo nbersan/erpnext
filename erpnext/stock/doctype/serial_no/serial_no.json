@@ -532,10 +532,10 @@
    "default": "No",
    "fieldname": "is_v1_comp",
    "fieldtype": "Select",
-   "in_list_view": 1,
+   "in_list_view": 0,
    "in_standard_filter": 1,
    "label": "Is V1 Comp",
-   "options": "Yes\nNo"
+   "options": "\nYes\nNo"
   }
  ],
  "icon": "fa fa-barcode",
