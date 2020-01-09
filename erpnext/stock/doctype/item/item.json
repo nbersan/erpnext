@@ -1040,18 +1040,17 @@
    "label": "Auto Create Assets on Purchase"
   },
   {
-   "default": "-",
-   "fieldname": "is_v1_comp",
-   "fieldtype": "Select",
-   "label": "Is V1 Component",
-   "options": "-\nYes\nNo",
-   "reqd": 1
-  },
-  {
    "fieldname": "manufacturers",
    "fieldtype": "Table",
    "label": "Manufacturers",
    "options": "Item Manufacturer"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_v1_comp",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is V1 Comp"
   }
  ],
  "has_web_view": 1,
@@ -1060,7 +1059,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 1,
- "modified": "2020-01-09 09:19:06.829538",
+ "modified": "2020-01-09 12:20:42.480633",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
