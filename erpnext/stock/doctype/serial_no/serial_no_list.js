@@ -12,7 +12,8 @@ frappe.listview_settings['Serial No'] = {
 			"R&D": "black",
 			"Committed": "green",
 			"Tradeshow": "dark blue",
-			"To Investigate": "red"
+			"To Investigate": "red",
+			"Empty": "black"
 		}[doc.status],"status,=,"+ doc.status];
 	}/*
 		if (doc.status) {
