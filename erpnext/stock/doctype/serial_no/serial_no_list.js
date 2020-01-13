@@ -10,7 +10,8 @@ frappe.listview_settings['Serial No'] = {
 			"To Be Tested": "yellow",
 			"WIP": "yellow",
 			"R&D": "black",
-			"Committed": "green"
+			"Committed": "green",
+			"Tradeshow": "dark blue"
 		}[doc.status],"status,=,"+ doc.status];
 	}/*
 		if (doc.status) {
