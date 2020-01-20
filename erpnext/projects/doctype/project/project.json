@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
@@ -20,10 +21,15 @@
   "expected_end_date",
   "priority",
   "department",
+  "on_site_name",
+  "cameras_total",
   "customer_details",
   "customer",
+  "customer_name",
   "column_break_14",
   "sales_order",
+  "sct_br_1",
+  "cameras_assigned",
   "users_section",
   "users",
   "copied_from",
@@ -82,7 +88,7 @@
    "no_copy": 1,
    "oldfieldname": "status",
    "oldfieldtype": "Select",
-   "options": "Open\nCompleted\nCancelled",
+   "options": "Open\nCompleted\nIn Progress\nCancelled",
    "reqd": 1,
    "search_index": 1
   },
@@ -142,7 +148,6 @@
    "bold": 1,
    "fieldname": "expected_end_date",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "label": "Expected End Date",
    "oldfieldname": "completion_date",
    "oldfieldtype": "Date"
@@ -163,12 +168,10 @@
    "options": "Department"
   },
   {
-   "collapsible": 1,
    "fieldname": "customer_details",
    "fieldtype": "Section Break",
    "label": "Customer Details",
-   "oldfieldtype": "Section Break",
-   "options": "fa fa-user"
+   "oldfieldtype": "Section Break"
   },
   {
    "fieldname": "customer",
@@ -445,12 +448,46 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Series"
+  },
+  {
+   "fieldname": "on_site_name",
+   "fieldtype": "Data",
+   "label": "On Site Name",
+   "options": "{customer_name} - {project}"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "sct_br_1",
+   "fieldtype": "Section Break",
+   "label": "Cameras"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "cameras_assigned",
+   "fieldtype": "Table",
+   "label": "Cameras Assigned",
+   "options": "Cameras Assigned"
+  },
+  {
+   "fieldname": "cameras_total",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cameras Total",
+   "reqd": 1
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
+ "links": [],
  "max_attachments": 4,
- "modified": "2019-10-18 08:33:08.674814",
+ "modified": "2020-01-20 13:59:36.707769",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",

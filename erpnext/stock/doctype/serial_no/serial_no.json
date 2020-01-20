@@ -18,6 +18,7 @@
   "status",
   "parent_item_serial_no",
   "cam_port",
+  "cc_location",
   "column_break1",
   "item_name",
   "description",
@@ -429,8 +430,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Serial No State",
-   "read_only": 1
+   "options": "Serial No State"
   },
   {
    "depends_on": "eval:doc.item_group !== \"Full Systems\"",
@@ -503,7 +503,7 @@
    "options": "Crane Camera Components"
   },
   {
-   "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status == \"Used\")",
+   "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status == \"On Site\")",
    "fieldname": "on_site",
    "fieldtype": "Data",
    "label": "On Site"
@@ -536,12 +536,21 @@
    "label": "Product Type",
    "options": "Product Type",
    "read_only": 1
+  },
+  {
+   "fieldname": "cc_location",
+   "fieldtype": "Select",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "CC Location",
+   "options": "Storage Room - Lausanne\nWorkshop - Lausanne\nTestbench - Lausanne",
+   "search_index": 1
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-01-10 15:53:16.349671",
+ "modified": "2020-01-14 13:40:10.896748",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
