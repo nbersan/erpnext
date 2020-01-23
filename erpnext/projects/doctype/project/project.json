@@ -22,6 +22,7 @@
   "priority",
   "department",
   "on_site_name",
+  "cameras_type",
   "cameras_total",
   "customer_details",
   "customer",
@@ -88,7 +89,7 @@
    "no_copy": 1,
    "oldfieldname": "status",
    "oldfieldtype": "Select",
-   "options": "Open\nCompleted\nIn Progress\nCancelled",
+   "options": "Open\nCameras Assigned\nIn Progress\nCameras Return\nCompleted\nCancelled",
    "reqd": 1,
    "search_index": 1
   },
@@ -164,6 +165,7 @@
   {
    "fieldname": "department",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Department",
    "options": "Department"
   },
@@ -476,18 +478,24 @@
   },
   {
    "fieldname": "cameras_total",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Cameras Total",
    "reqd": 1
+  },
+  {
+   "fieldname": "cameras_type",
+   "fieldtype": "Link",
+   "label": "Cameras Type",
+   "options": "Item"
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-01-20 13:59:36.707769",
+ "modified": "2020-01-20 14:16:40.959258",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",

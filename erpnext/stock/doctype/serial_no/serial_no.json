@@ -28,6 +28,7 @@
   "sales_order",
   "product_type",
   "on_site",
+  "is_drilled",
   "sub_items",
   "item_details",
   "system_items",
@@ -545,12 +546,19 @@
    "label": "CC Location",
    "options": "Storage Room - Lausanne\nWorkshop - Lausanne\nTestbench - Lausanne",
    "search_index": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.item_code === \"CCVidtc\"",
+   "fieldname": "is_drilled",
+   "fieldtype": "Check",
+   "label": "Is Drilled"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-01-14 13:40:10.896748",
+ "modified": "2020-01-23 10:01:05.462836",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
