@@ -9,7 +9,7 @@ frappe.listview_settings['Project'] = {
 			"Cameras Return": "blue",
 			"Completed": "green",
 			"Cancelled": "red"
-		}
+		}[doc.status],"status,=,"+ doc.status];
 /*		if(doc.status=="Open" && doc.percent_complete) {
 			return [__("{0}%", [cint(doc.percent_complete)]), "orange", "percent_complete,>,0|status,=,Open"];
 		} else {
