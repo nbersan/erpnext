@@ -24,6 +24,7 @@
   "on_site_name",
   "cameras_type",
   "cameras_total",
+  "replacement_cameras_total",
   "customer_details",
   "customer",
   "customer_name",
@@ -148,6 +149,7 @@
    "bold": 1,
    "fieldname": "expected_end_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Expected End Date",
    "oldfieldname": "completion_date",
    "oldfieldtype": "Date"
@@ -481,20 +483,29 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Cameras Total",
+   "precision": "1",
    "reqd": 1
   },
   {
    "fieldname": "cameras_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Cameras Type",
-   "options": "Item"
+   "options": "CCV1SDV\nCCV1KCV\nCCV1WCV\nCCV1SDV + CCV1KCV\nCCV1WCV + CCV1KCV"
+  },
+  {
+   "depends_on": "eval:doc.status == \"Need Replacement Cameras\";",
+   "fieldname": "replacement_cameras_total",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Replacement Cameras Total",
+   "precision": "1"
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-01-27 09:18:48.436408",
+ "modified": "2020-01-27 10:14:53.281499",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
