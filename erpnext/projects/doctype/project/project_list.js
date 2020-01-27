@@ -6,6 +6,7 @@ frappe.listview_settings['Project'] = {
 			"Open": "red",
 			"Cameras Assigned": "orange",
 			"In Progress": "yellow",
+			"Need Replacement Cameras": "orange",
 			"Cameras Return": "blue",
 			"Completed": "green",
 			"Cancelled": "red"
