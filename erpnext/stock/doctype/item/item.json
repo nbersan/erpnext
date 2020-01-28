@@ -1060,7 +1060,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 1,
- "modified": "2020-01-28 06:46:55.769785",
+ "modified": "2020-01-28 07:14:17.259085",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",
@@ -1118,7 +1118,7 @@
  "search_fields": "item_name,description,item_group,customer_code",
  "show_name_in_global_search": 1,
  "show_preview_popup": 1,
- "sort_field": "idx desc,creation desc",
+ "sort_field": "serial_no_series",
  "sort_order": "DESC",
  "title_field": "item_name",
  "track_changes": 1
