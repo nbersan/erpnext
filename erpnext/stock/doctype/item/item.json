@@ -501,8 +501,7 @@
    "fieldname": "serial_no_series",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Serial Number Series",
-   "read_only": 1
+   "label": "Serial Number Series"
   },
   {
    "collapsible": 1,
@@ -1060,7 +1059,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 1,
- "modified": "2020-01-28 07:14:17.259085",
+ "modified": "2020-01-28 14:09:56.233221",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Item",

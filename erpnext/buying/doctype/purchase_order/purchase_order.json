@@ -48,7 +48,6 @@
   "ignore_pricing_rule",
   "sec_warehouse",
   "set_warehouse",
-  "set_reserve_warehouse",
   "col_break_warehouse",
   "is_subcontracted",
   "supplier_warehouse",
@@ -340,7 +339,6 @@
    "fieldname": "contact_email",
    "fieldtype": "Small Text",
    "label": "Contact Email",
-   "options": "Email",
    "print_hide": 1,
    "read_only": 1
   },
@@ -608,7 +606,7 @@
   },
   {
    "fieldname": "other_charges_calculation",
-   "fieldtype": "Long Text",
+   "fieldtype": "Text",
    "label": "Taxes and Charges Calculation",
    "no_copy": 1,
    "oldfieldtype": "HTML",
@@ -800,6 +798,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "disable_rounded_total",
    "fieldtype": "Check",
@@ -1040,20 +1039,13 @@
    "fieldtype": "Link",
    "label": "Tax Category",
    "options": "Tax Category"
-  },
-  {
-   "depends_on": "supplied_items",
-   "fieldname": "set_reserve_warehouse",
-   "fieldtype": "Link",
-   "label": "Set Reserve Warehouse",
-   "options": "Warehouse"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
-"links": [],
- "modified": "2019-12-30 19:11:54.122264",
+ "links": [],
+ "modified": "2020-01-28 13:34:34.637912",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",

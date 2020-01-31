@@ -146,7 +146,7 @@
    "print_hide": 1
   },
   {
-   "default": "0",
+   "default": "1",
    "description": "Check if material transfer entry is not required",
    "fieldname": "skip_transfer",
    "fieldtype": "Check",
@@ -474,7 +474,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2019-12-04 11:20:04.695123",
+ "modified": "2020-01-29 06:27:34.897967",
  "modified_by": "Administrator",
  "module": "Manufacturing",
  "name": "Work Order",

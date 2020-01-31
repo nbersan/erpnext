@@ -16,22 +16,25 @@
   "warehouse",
   "batch_no",
   "status",
-  "parent_item_serial_no",
   "cam_port",
-  "cc_location",
   "column_break1",
   "item_name",
   "description",
   "item_group",
   "imei_no",
   "brand",
+  "parent_item_serial_no",
   "sales_order",
   "product_type",
   "on_site",
   "is_drilled",
+  "cc_location",
   "sub_items",
   "item_details",
-  "system_items",
+  "sc_break1",
+  "soda_sd_no",
+  "column_break01",
+  "bb_sd_no",
   "purchase_details",
   "column_break2",
   "purchase_document_type",
@@ -108,7 +111,6 @@
    "reqd": 1
   },
   {
-   "description": "Warehouse can only be changed via Stock Entry / Delivery Note / Purchase Receipt",
    "fieldname": "warehouse",
    "fieldtype": "Link",
    "label": "Warehouse",
@@ -133,12 +135,14 @@
   {
    "fieldname": "item_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Item Name",
    "read_only": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Text",
+   "hidden": 1,
    "label": "Description",
    "oldfieldname": "description",
    "oldfieldtype": "Text",
@@ -167,6 +171,7 @@
   {
    "fieldname": "sales_order",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Sales Order",
    "options": "Sales Order"
   },
@@ -434,7 +439,6 @@
    "options": "Serial No State"
   },
   {
-   "depends_on": "eval:doc.item_group !== \"Full Systems\"",
    "fieldname": "parent_item_serial_no",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -497,13 +501,6 @@
    "label": "IMEI No"
   },
   {
-   "allow_bulk_edit": 1,
-   "fieldname": "system_items",
-   "fieldtype": "Table",
-   "label": "System Items",
-   "options": "Crane Camera Components"
-  },
-  {
    "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status == \"On Site\")",
    "fieldname": "on_site",
    "fieldtype": "Data",
@@ -525,9 +522,10 @@
   {
    "depends_on": "eval:doc.item_group===\"Full Systems\"",
    "fieldname": "cam_port",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Port"
+   "label": "Port",
+   "options": "Serial No"
   },
   {
    "fieldname": "product_type",
@@ -554,12 +552,32 @@
    "fieldname": "is_drilled",
    "fieldtype": "Check",
    "label": "Is Drilled"
+  },
+  {
+   "fieldname": "column_break01",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.item_group == \"Full Systems\";",
+   "fieldname": "bb_sd_no",
+   "fieldtype": "Data",
+   "label": "BBInd SD Card Number"
+  },
+  {
+   "depends_on": "eval: doc.item_group == \"Full Systems\";",
+   "fieldname": "soda_sd_no",
+   "fieldtype": "Data",
+   "label": "Soda SD Card Number"
+  },
+  {
+   "fieldname": "sc_break1",
+   "fieldtype": "Section Break"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-01-28 08:31:23.857181",
+ "modified": "2020-01-31 10:28:49.750728",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
