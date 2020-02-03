@@ -16,7 +16,6 @@
   "warehouse",
   "batch_no",
   "status",
-  "cam_port",
   "column_break1",
   "item_name",
   "description",
@@ -521,15 +520,6 @@
    "label": "History"
   },
   {
-   "depends_on": "eval:doc.item_group == \"Full Systems\"",
-   "fieldname": "cam_port",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Port",
-   "options": "Serial No"
-  },
-  {
    "fieldname": "product_type",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -586,7 +576,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-02-03 15:17:25.545237",
+ "modified": "2020-02-03 15:26:10.194971",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
