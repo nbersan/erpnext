@@ -29,6 +29,7 @@
   "on_site",
   "is_drilled",
   "cc_location",
+  "pretest_done",
   "sub_items",
   "item_details",
   "sc_break1",
@@ -572,12 +573,19 @@
   {
    "fieldname": "sc_break1",
    "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.item_group == \"Full Systems\"",
+   "fieldname": "pretest_done",
+   "fieldtype": "Check",
+   "label": "Pre-TestBench Done and Successful"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-01-31 10:28:49.750728",
+ "modified": "2020-02-03 14:17:10.254199",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
