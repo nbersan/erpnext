@@ -521,10 +521,11 @@
    "label": "History"
   },
   {
-   "depends_on": "eval:doc.item_group===\"Full Systems\"",
+   "depends_on": "eval:doc.item_group == \"Full Systems\"",
    "fieldname": "cam_port",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Port",
    "options": "Serial No"
   },
@@ -585,7 +586,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-02-03 14:17:10.254199",
+ "modified": "2020-02-03 15:17:25.545237",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
