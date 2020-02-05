@@ -15,7 +15,7 @@
  "name": "BOM Stock Levels",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "SELECT \n\tbom_item.item_code as \"Item:Link/Item:200\",\n\tbom_item.description as \"Description:Data:300\",\n\tbom_item.qty as \"Required Qty:Float:100\",\n\t\n\tledger.actual_qty  as \"In Stock Qty:Float:100\",\n\tFLOOR(ledger.actual_qty /bom_item.qty) as \"Enough Parts to Build:Int:100\"\nFROM\n    'tabSerial No' AS serial_no\n\t`tabBOM Item` AS bom_item \n\tLEFT JOIN `tabBin` AS ledger\t\n\t\tON bom_item.item_code = ledger.item_code  \n\t\tAND ledger.warehouse = %(warehouse)s\nWHERE\n    'tabSerial No'.status = %(Free)s\n\tbom_item.parent=%(bom)s\n\nGROUP BY bom_item.item_code",
+ "query": "SELECT \n\tbom_item.item_code as \"Item:Link/Item:200\",\n\tbom_item.description as \"Description:Data:300\",\n\tbom_item.qty as \"Required Qty:Float:100\",\n\t\n\titem_qty  as \"In Stock Qty:Float:100\",\n\tFLOOR(item_qty /bom_item.qty) as \"Enough Parts to Build:Int:100\"\nFROM\n\t'tabSerial No' AS serial_no\n\t`tabBOM Item` AS bom_item\n\tLEFT JOIN `tabBin` AS ledger\t\n\t\tON bom_item.item_code = ledger.item_code  \n\t\tAND ledger.warehouse = %(warehouse)s\nWHERE\n\t'tabSerial No'.status = %(Free)s\n\tbom_item.parent=%(bom)s\n\nGROUP BY bom_item.item_code",
  "ref_doctype": "BOM",
  "report_name": "BOM Stock Levels",
  "report_type": "Script Report",
