@@ -26,10 +26,10 @@ def get_columns():
 def get_bom_stock(filters):
         bom = filters.get("bom")
         table = "`tabBOM Item`"
-	bom_item = table
+	bom_item = bom.bom_item
         qty_field = "qty"
         qty_to_produce = filters.get("qty_to_produce",1)
-        
+
         item_qty = frappe.db.count("Serial No", {"item_code": bom_item.item_code, "status": "Free"})
         return frappe.db.sql("""
                         SELECT
@@ -45,13 +45,12 @@ def get_bom_stock(filters):
                                 ON bom_item.item_code = ledger.item_code
                         WHERE
                                 bom_item.parent = '{bom}' and bom_item.parenttype = 'BOM'
-                                
+
                         GROUP BY bom_item.item_code""".format(
                                 qty_field=qty_field,
                                 table=table,
                                 bom=bom,
                                 qty_to_produce=qty_to_produce or 1)
-                        )        
+                        )
 
-                                
-                                
+
