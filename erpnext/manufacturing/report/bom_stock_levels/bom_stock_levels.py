@@ -42,7 +42,7 @@ def get_bom_stock(filters):
                                 LEFT JOIN `tabBin` AS ledger
                                 ON bom_item.item_code = ledger.item_code
                         WHERE
-                                bom_item.parent = '{bom}' and bom_item.parenttype = 'BOM'
+                                bom_item.parent = {bom} and bom_item.parenttype = 'BOM'
 
                         GROUP BY bom_item.item_code""".format(
                                 qty_field=qty_field,
