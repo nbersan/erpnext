@@ -26,7 +26,6 @@ def get_columns():
 def get_bom_stock(filters):
         bom = filters.get("bom")
         table = "`tabBOM Item`"
-	bom_item = bom.bom_item
         qty_field = "qty"
         qty_to_produce = filters.get("qty_to_produce",1)
         item_qty = frappe.db.count("Serial No", {"item_code": item_code, "status": "Free"})
