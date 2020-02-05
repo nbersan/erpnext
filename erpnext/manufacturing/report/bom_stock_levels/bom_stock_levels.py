@@ -26,6 +26,7 @@ def get_columns():
 def get_bom_stock(filters):
         bom = filters.get("bom")
         table = "`tabBOM Item`"
+	bom_item = table
         qty_field = "qty"
         qty_to_produce = filters.get("qty_to_produce",1)
         
