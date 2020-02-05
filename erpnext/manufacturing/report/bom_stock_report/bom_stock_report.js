@@ -7,10 +7,10 @@ frappe.query_reports["BOM Stock Report"] = {
 			"options": "BOM",
 			"reqd": 1
 		}, {
-			"fieldname": "warehouse",
-			"label": __("Warehouse"),
+			"fieldname": "status",
+			"label": __("Status"),
 			"fieldtype": "Link",
-			"options": "Warehouse",
+			"options": "Serial No State",
 			"reqd": 1
 		}, {
 			"fieldname": "show_exploded_view",
