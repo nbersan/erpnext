@@ -488,9 +488,9 @@
   },
   {
    "fieldname": "cameras_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Cameras Type",
-   "options": "CCV1SDV\nCCV1KCV\nCCV1WCV\nCCV1SDV + CCV1KCV\nCCV1WCV + CCV1KCV"
+   "options": "Item"
   },
   {
    "depends_on": "eval:doc.status == \"Need Replacement Cameras\";",
@@ -505,7 +505,7 @@
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-01-27 10:14:53.281499",
+ "modified": "2020-02-06 11:40:50.993073",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",

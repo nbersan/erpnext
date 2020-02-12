@@ -9,6 +9,7 @@ frappe.listview_settings['Serial No'] = {
 			"On Site": "blue",
 			"To Be Tested": "yellow",
 			"WIP": "yellow",
+			"WIP Need Case": "yellow",
 			"R&D": "black",
 			"Committed": "green",
 			"Tradeshow": "dark blue",

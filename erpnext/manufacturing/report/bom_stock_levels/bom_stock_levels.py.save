@@ -1,0 +1,34 @@
+from __future__ import unicode_literals
+import frappe
+from frappe import _
+
+def execute(filters=None):
+        if not filters: filters = {}
+
+	columns = get_columns()
+
+	data = get_bom_stock(filters)
+
+        return columns, data
+
+def get_columns():
+         """return columns"""
+         columns = [
+                 _("Item") + ":Link/Item:150",
+                 _("Description") + "::500",
+                 _("Qty per BOM Line") + ":Float:100",
+                 _("Required Qty") + ":Float:100",
+                 _("In Stock Qty") + ":Float:100",
+                 _("Enough Parts to Build") + ":Float:200",
+         ]
+
+         return columns
+
+def get_bom_stock(filters):
+	bom = filters.get("bom")
+	
+
+
+
+
+
