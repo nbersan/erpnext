@@ -37,17 +37,17 @@
   },
   {
    "default": "0",
-   "fieldname": "is_back",
-   "fieldtype": "Check",
-   "in_list_view": 1,
-   "label": "Is Back"
-  },
-  {
-   "default": "0",
    "fieldname": "is_sent",
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Is Sent"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_back",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Back"
   },
   {
    "fieldname": "shp_date",
@@ -64,9 +64,9 @@
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-02-12 11:43:45.110106",
+ "modified": "2020-02-12 15:16:46.373220",
  "modified_by": "Administrator",
- "module": "Selling",
+ "module": "Projects",
  "name": "Cameras Assigned",
  "owner": "Administrator",
  "permissions": [],
