@@ -65,8 +65,8 @@
   "project",
   "invoice_details",
   "sales_invoice",
-  "history",
-  "camera_history",
+  "qc",
+  "testbench",
   "warranty_amc_details",
   "column_break6",
   "warranty_expiry_date",
@@ -177,6 +177,7 @@
    "options": "Sales Order"
   },
   {
+   "collapsible": 1,
    "fieldname": "purchase_details",
    "fieldtype": "Section Break",
    "label": "Purchase / Manufacture Details"
@@ -244,6 +245,7 @@
    "read_only": 1
   },
   {
+   "collapsible": 1,
    "fieldname": "asset_details",
    "fieldtype": "Section Break",
    "label": "Asset Details"
@@ -285,6 +287,7 @@
    "read_only": 1
   },
   {
+   "collapsible": 1,
    "fieldname": "delivery_details",
    "fieldtype": "Section Break",
    "label": "Delivery Details",
@@ -503,23 +506,10 @@
    "label": "IMEI No"
   },
   {
-   "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status == \"On Site\")",
+   "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status == \"Shipped\")",
    "fieldname": "on_site",
    "fieldtype": "Data",
    "label": "On Site"
-  },
-  {
-   "allow_bulk_edit": 1,
-   "depends_on": "eval:doc.item_group == \"Full Systems\"",
-   "fieldname": "camera_history",
-   "fieldtype": "Table",
-   "label": "Camera History",
-   "options": "Camera History Item"
-  },
-  {
-   "fieldname": "history",
-   "fieldtype": "Section Break",
-   "label": "History"
   },
   {
    "fieldname": "product_type",
@@ -531,7 +521,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.item_group===\"Full Systems\";",
+   "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status != \"Shipped\")",
    "fieldname": "cc_location",
    "fieldtype": "Select",
    "in_global_search": 1,
@@ -590,12 +580,25 @@
    "fieldtype": "Select",
    "label": "Case Version",
    "options": "\nSTD\nWCV\nKCV"
+  },
+  {
+   "fieldname": "qc",
+   "fieldtype": "Section Break",
+   "label": "Quality Control"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "depends_on": "eval:doc.item_group == \"Full Systems\"",
+   "fieldname": "testbench",
+   "fieldtype": "Table",
+   "label": "TestBench",
+   "options": "Camera History Item"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-02-12 06:31:55.927485",
+ "modified": "2020-03-03 09:56:58.684714",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
