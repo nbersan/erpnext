@@ -23,7 +23,9 @@
   "department",
   "on_site_name",
   "cameras_type",
-  "cameras_total",
+  "sdv_tot",
+  "wcv_tot",
+  "kcv_tot",
   "proj_end",
   "replacement_cameras_total",
   "customer_details",
@@ -479,15 +481,6 @@
    "options": "Cameras Assigned"
   },
   {
-   "fieldname": "cameras_total",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Cameras Total",
-   "precision": "1",
-   "reqd": 1
-  },
-  {
    "fieldname": "cameras_type",
    "fieldtype": "Link",
    "label": "Cameras Type",
@@ -512,13 +505,33 @@
    "fieldtype": "Table",
    "label": "Replacement Cameras",
    "options": "Cameras Assigned"
+  },
+  {
+   "fieldname": "wcv_tot",
+   "fieldtype": "Float",
+   "label": "WCV Total",
+   "precision": "1"
+  },
+  {
+   "fieldname": "kcv_tot",
+   "fieldtype": "Float",
+   "label": "KCV Total",
+   "precision": "1"
+  },
+  {
+   "fieldname": "sdv_tot",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "SDV Total",
+   "precision": "1"
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-02-13 12:07:53.932685",
+ "modified": "2020-03-17 10:00:02.295949",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
