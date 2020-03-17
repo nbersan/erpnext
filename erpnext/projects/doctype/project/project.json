@@ -23,9 +23,15 @@
   "department",
   "on_site_name",
   "cameras_type",
+<<<<<<< HEAD
   "sdv_tot",
   "wcv_tot",
   "kcv_tot",
+=======
+  "wcv_tot",
+  "kcv_tot",
+  "cameras_total",
+>>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
   "proj_end",
   "replacement_cameras_total",
   "customer_details",
@@ -509,12 +515,17 @@
   {
    "fieldname": "wcv_tot",
    "fieldtype": "Float",
+<<<<<<< HEAD
    "label": "WCV Total",
    "precision": "1"
+=======
+   "label": "WCV Total"
+>>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
   },
   {
    "fieldname": "kcv_tot",
    "fieldtype": "Float",
+<<<<<<< HEAD
    "label": "KCV Total",
    "precision": "1"
   },
@@ -525,13 +536,20 @@
    "in_standard_filter": 1,
    "label": "SDV Total",
    "precision": "1"
+=======
+   "label": "KCV Total"
+>>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
  "links": [],
  "max_attachments": 4,
+<<<<<<< HEAD
  "modified": "2020-03-17 10:00:02.295949",
+=======
+ "modified": "2020-03-17 13:58:20.524297",
+>>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",

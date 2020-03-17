@@ -15,13 +15,16 @@
  ],
  "fields": [
   {
+<<<<<<< HEAD
    "fetch_from": "cam_port.parent_item_serial_no",
+=======
+   "fetch_from": "serial_no.parent_item_serial_no",
+>>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
    "fetch_if_empty": 1,
    "fieldname": "serial_no",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Camera",
-   "options": "Serial No"
+   "label": "Camera"
   },
   {
    "fetch_from": "serial_no.item_code",
@@ -30,8 +33,6 @@
    "label": "Camera Version"
   },
   {
-   "fetch_from": "serial_no.cam_port",
-   "fetch_if_empty": 1,
    "fieldname": "cam_port",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -67,7 +68,11 @@
  ],
  "istable": 1,
  "links": [],
+<<<<<<< HEAD
  "modified": "2020-03-17 09:52:51.214128",
+=======
+ "modified": "2020-03-17 14:15:56.415060",
+>>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Cameras Assigned",
