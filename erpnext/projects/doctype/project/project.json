@@ -23,6 +23,8 @@
   "department",
   "on_site_name",
   "cameras_type",
+  "wcv_tot",
+  "kcv_tot",
   "cameras_total",
   "proj_end",
   "replacement_cameras_total",
@@ -512,13 +514,23 @@
    "fieldtype": "Table",
    "label": "Replacement Cameras",
    "options": "Cameras Assigned"
+  },
+  {
+   "fieldname": "wcv_tot",
+   "fieldtype": "Float",
+   "label": "WCV Total"
+  },
+  {
+   "fieldname": "kcv_tot",
+   "fieldtype": "Float",
+   "label": "KCV Total"
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-02-13 12:07:53.932685",
+ "modified": "2020-03-17 13:58:20.524297",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
