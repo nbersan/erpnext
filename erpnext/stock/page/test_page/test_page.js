@@ -4,5 +4,5 @@ frappe.pages['test_page'].on_page_load = function(wrapper) {
 		title: 'Test page',
 		single_column: true
 	});
-$(frappe.render_template(‘test_page’)).appendTo(page.body);
+$(frappe.render_template('test_page')).appendTo(page.body);
 }

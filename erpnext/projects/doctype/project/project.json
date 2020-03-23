@@ -22,16 +22,10 @@
   "priority",
   "department",
   "on_site_name",
-  "cameras_type",
-<<<<<<< HEAD
+  "cameras_tot",
   "sdv_tot",
   "wcv_tot",
   "kcv_tot",
-=======
-  "wcv_tot",
-  "kcv_tot",
-  "cameras_total",
->>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
   "proj_end",
   "replacement_cameras_total",
   "customer_details",
@@ -83,6 +77,11 @@
   "message"
  ],
  "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series"
+  },
   {
    "fieldname": "project_name",
    "fieldtype": "Data",
@@ -181,6 +180,52 @@
    "options": "Department"
   },
   {
+   "fieldname": "on_site_name",
+   "fieldtype": "Data",
+   "label": "On Site Name",
+   "options": "{customer_name} - {project}"
+  },
+  {
+   "fieldname": "cameras_tot",
+   "fieldtype": "Float",
+   "label": "Cameras Total",
+   "precision": "1"
+  },
+  {
+   "fieldname": "sdv_tot",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "SDV Total",
+   "precision": "1"
+  },
+  {
+   "fieldname": "wcv_tot",
+   "fieldtype": "Float",
+   "label": "WCV Total",
+   "precision": "1"
+  },
+  {
+   "fieldname": "kcv_tot",
+   "fieldtype": "Float",
+   "label": "KCV Total",
+   "precision": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "proj_end",
+   "fieldtype": "Check",
+   "label": "Project Ending"
+  },
+  {
+   "depends_on": "eval:doc.status == \"Need Replacement Cameras\";",
+   "fieldname": "replacement_cameras_total",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Replacement Cameras Total",
+   "precision": "1"
+  },
+  {
    "fieldname": "customer_details",
    "fieldtype": "Section Break",
    "label": "Customer Details",
@@ -198,6 +243,13 @@
    "search_index": 1
   },
   {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name"
+  },
+  {
    "fieldname": "column_break_14",
    "fieldtype": "Column Break"
   },
@@ -206,6 +258,24 @@
    "fieldtype": "Link",
    "label": "Sales Order",
    "options": "Sales Order"
+  },
+  {
+   "fieldname": "sct_br_1",
+   "fieldtype": "Section Break",
+   "label": "Cameras"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "cameras_assigned",
+   "fieldtype": "Table",
+   "label": "Cameras Assigned",
+   "options": "Cameras Assigned"
+  },
+  {
+   "fieldname": "rpl_cam",
+   "fieldtype": "Table",
+   "label": "Replacement Cameras",
+   "options": "Cameras Assigned"
   },
   {
    "collapsible": 1,
@@ -455,101 +525,13 @@
    "fieldname": "message",
    "fieldtype": "Text",
    "label": "Message"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Series"
-  },
-  {
-   "fieldname": "on_site_name",
-   "fieldtype": "Data",
-   "label": "On Site Name",
-   "options": "{customer_name} - {project}"
-  },
-  {
-   "fieldname": "customer_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Full Name"
-  },
-  {
-   "fieldname": "sct_br_1",
-   "fieldtype": "Section Break",
-   "label": "Cameras"
-  },
-  {
-   "allow_bulk_edit": 1,
-   "fieldname": "cameras_assigned",
-   "fieldtype": "Table",
-   "label": "Cameras Assigned",
-   "options": "Cameras Assigned"
-  },
-  {
-   "fieldname": "cameras_type",
-   "fieldtype": "Link",
-   "label": "Cameras Type",
-   "options": "Item"
-  },
-  {
-   "depends_on": "eval:doc.status == \"Need Replacement Cameras\";",
-   "fieldname": "replacement_cameras_total",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Replacement Cameras Total",
-   "precision": "1"
-  },
-  {
-   "default": "0",
-   "fieldname": "proj_end",
-   "fieldtype": "Check",
-   "label": "Project Ending"
-  },
-  {
-   "fieldname": "rpl_cam",
-   "fieldtype": "Table",
-   "label": "Replacement Cameras",
-   "options": "Cameras Assigned"
-  },
-  {
-   "fieldname": "wcv_tot",
-   "fieldtype": "Float",
-<<<<<<< HEAD
-   "label": "WCV Total",
-   "precision": "1"
-=======
-   "label": "WCV Total"
->>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
-  },
-  {
-   "fieldname": "kcv_tot",
-   "fieldtype": "Float",
-<<<<<<< HEAD
-   "label": "KCV Total",
-   "precision": "1"
-  },
-  {
-   "fieldname": "sdv_tot",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "SDV Total",
-   "precision": "1"
-=======
-   "label": "KCV Total"
->>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
   }
  ],
  "icon": "fa fa-puzzle-piece",
  "idx": 29,
  "links": [],
  "max_attachments": 4,
-<<<<<<< HEAD
- "modified": "2020-03-17 10:00:02.295949",
-=======
- "modified": "2020-03-17 13:58:20.524297",
->>>>>>> 1ae5be6d6f2686b47eb4e38df1510243a205f201
+ "modified": "2020-03-23 14:56:06.503591",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
