@@ -5,7 +5,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "cam_port",
+  "camera_port",
   "tst_st",
   "tst_end"
  ],
@@ -23,20 +23,18 @@
    "label": "Testbench End Date"
   },
   {
-   "fetch_from": "project.on_site_name",
-   "fieldname": "cam_port",
+   "fieldname": "camera_port",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Port",
-   "options": "Serial No"
+   "label": "Port"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-03-03 11:20:36.840172",
+ "modified": "2020-03-24 14:37:47.763142",
  "modified_by": "Administrator",
  "module": "Stock",
- "name": "Camera History Item",
+ "name": "Testbench Details",
  "owner": "Administrator",
  "permissions": [],
  "quick_entry": 1,

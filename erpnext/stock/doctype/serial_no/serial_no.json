@@ -18,6 +18,8 @@
   "status",
   "cam_port",
   "case_v",
+  "under_test_state",
+  "testb_st_dte",
   "column_break1",
   "item_name",
   "description",
@@ -30,7 +32,7 @@
   "on_site",
   "is_drilled",
   "cc_location",
-  "pretest_done",
+  "testb_end_dte",
   "sub_items",
   "item_details",
   "sc_break1",
@@ -66,7 +68,7 @@
   "invoice_details",
   "sales_invoice",
   "qc",
-  "testbench",
+  "testbench_details",
   "warranty_amc_details",
   "column_break6",
   "warranty_expiry_date",
@@ -115,6 +117,7 @@
   {
    "fieldname": "warehouse",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Warehouse",
    "oldfieldname": "warehouse",
    "oldfieldtype": "Link",
@@ -558,13 +561,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "default": "0",
-   "depends_on": "eval:doc.item_group == \"Full Systems\"",
-   "fieldname": "pretest_done",
-   "fieldtype": "Check",
-   "label": "Pre-TestBench Done and Successful"
-  },
-  {
    "default": "CC-NoPort",
    "depends_on": "eval:doc.item_group===\"Full Systems\"",
    "fieldname": "cam_port",
@@ -589,18 +585,39 @@
    "label": "Quality Control"
   },
   {
+   "depends_on": "eval:doc.status===\"Under Testing\"",
+   "fieldname": "testb_st_dte",
+   "fieldtype": "Date",
+   "ignore_user_permissions": 1,
+   "label": "TestBench Start Date"
+  },
+  {
    "allow_bulk_edit": 1,
    "depends_on": "eval:doc.item_group == \"Full Systems\"",
-   "fieldname": "testbench",
+   "fieldname": "testbench_details",
    "fieldtype": "Table",
-   "label": "TestBench",
-   "options": "Camera History Item"
+   "label": "TestBench Details",
+   "options": "Testbench Details"
+  },
+  {
+   "depends_on": "eval:doc.status===\"Under Testing\"",
+   "fieldname": "testb_end_dte",
+   "fieldtype": "Date",
+   "label": "TestBench End Date"
+  },
+  {
+   "depends_on": "eval:doc.status===\"Under Testing\"",
+   "fieldname": "under_test_state",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Under Testing Status",
+   "options": "Serial No State"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-03-16 14:13:15.963210",
+ "modified": "2020-03-25 08:27:56.698331",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

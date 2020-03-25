@@ -4,16 +4,16 @@
  "docstatus": 0,
  "doctype": "Page",
  "idx": 0,
- "modified": "2020-03-23 13:39:35.620654",
+ "modified": "2020-03-25 09:14:42.961549",
  "modified_by": "Administrator",
  "module": "Stock",
- "name": "test_page",
+ "name": "CC Production",
  "owner": "Administrator",
- "page_name": "Test_page",
+ "page_name": "CC Production",
  "roles": [],
  "script": null,
  "standard": "Yes",
  "style": null,
  "system_page": 0,
- "title": "Test"
+ "title": "CC Production"
 }
