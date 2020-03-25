@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "creation": "2020-03-25 14:02:41.180293",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "camera_port",
+  "camera_serial",
+  "camera_version",
+  "col_break1",
+  "st_dte",
+  "end_dte"
+ ],
+ "fields": [
+  {
+   "fieldname": "camera_port",
+   "fieldtype": "Link",
+   "label": "Camera Port",
+   "options": "Serial No"
+  },
+  {
+   "fieldname": "camera_serial",
+   "fieldtype": "Link",
+   "label": "Camera Serial",
+   "options": "Serial No"
+  },
+  {
+   "fetch_from": "serial_no.item_code",
+   "fieldname": "camera_version",
+   "fieldtype": "Data",
+   "label": "Camera Version"
+  },
+  {
+   "fieldname": "col_break1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "st_dte",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_dte",
+   "fieldtype": "Date",
+   "label": "End Date"
+  }
+ ],
+ "links": [],
+ "modified": "2020-03-25 14:07:17.874372",
+ "modified_by": "Administrator",
+ "module": "Quality Management",
+ "name": "TestBench Results",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -4,6 +4,17 @@ from frappe import _
 def get_data():
 	return [
 		{
+			"label": _("Testbench"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "TestBench Results",
+					"description":_("TestBench Results."),
+					"onboard": 1,
+				},
+			]
+		},
+		{
 			"label": _("Goal and Procedure"),
 			"items": [
 				{

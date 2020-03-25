@@ -1,8 +1,8 @@
-frappe.pages['test_page'].on_page_load = function(wrapper) {
+frappe.pages['cc_production'].on_page_load = function(wrapper) {
 	var page = frappe.ui.make_app_page({
 		parent: wrapper,
-		title: 'Test page',
+		title: 'CC Production',
 		single_column: true
 	});
-$(frappe.render_template('test_page')).appendTo(page.body);
+$(frappe.render_template('cc_production')).appendTo(page.body);
 }

@@ -1,5 +1,5 @@
 frappe.listview_settings['Serial No'] = {
-	add_fields: ["status", "item_code", "warehouse", "warranty_expiry_date", "delivery_document_type"],
+	add_fields: ["status", "item_code", "warehouse", "warranty_expiry_date", "delivery_document_type", "under_test_state"],
 	get_indicator: function (doc)  {
 		return [__(doc.status), {
 			"Free": "green",
@@ -19,6 +19,10 @@ frappe.listview_settings['Serial No'] = {
 			"Ready": "green",
 			"Shipped": "blue"
 		}[doc.status],"status,=,"+ doc.status];
+		return [__(doc.under_test_state), {
+			"Online": "green",
+			"Offline": "red"
+		}[doc.under_test_state],"under_test_state,=,"+ doc.under_test_state];
 	}/*
 		if (doc.status) {
 			return [__("Used"), "red", "status,=,Used"];
