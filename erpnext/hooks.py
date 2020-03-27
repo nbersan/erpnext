@@ -263,7 +263,7 @@ doc_events = {
 		"after_insert": "erpnext.crm.doctype.email_campaign.email_campaign.unsubscribe_recipient"
 	},
 	"Testbench Results": {
-		"autoname": "erpnext.quality_management.doctype.tesbench_results.testbench_results.test_autoname"
+		"autoname": "erpnext.quality_management.doctype.tesbench_results.testbench_results.autoname"
 	}
 }
 

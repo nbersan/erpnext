@@ -8,6 +8,6 @@ from frappe.model.document import Document
 from frappe.model.naming import make_autoname
 
 class TestBenchResults(Document):
-	def test_autoname(self):
+	def autoname(self):
 		prefix = self.camera_serial
 		self.name = make_autoname(prefix + '_.###')
