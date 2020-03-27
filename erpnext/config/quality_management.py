@@ -9,7 +9,8 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Testbench Results",
-					"description":_("Testbench Results")
+					"description":_("Testbench Results"),
+					"onboard": 1,
 				},
 			]
 		},
