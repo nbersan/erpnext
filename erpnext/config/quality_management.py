@@ -52,12 +52,6 @@ def get_data():
 					"name": "Quality Action",
 					"description":_("Quality Action"),
 				},
-				{
-                                        "type": "doctype",
-                                        "name": "TestBench Results",
-                                        "description":_("TestBench Results."),
-
-				}
 			]
 		},
 		{
