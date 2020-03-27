@@ -8,8 +8,8 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Testbench Results",
-					"description":_("Testbench Results"),
+					"name": "TestBench Results",
+					"description":_("TestBench Results"),
 					"onboard": 1,
 				},
 			]
