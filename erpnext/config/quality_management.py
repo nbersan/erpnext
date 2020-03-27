@@ -10,6 +10,8 @@ def get_data():
 					"type": "doctype",
 					"name": "Testbench Results",
 					"description":_("Testbench Results")
+				},
+			]
 		},
 		{
 			"label": _("Goal and Procedure"),
