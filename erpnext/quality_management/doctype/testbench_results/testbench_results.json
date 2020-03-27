@@ -2,7 +2,6 @@
  "actions": [],
  "creation": "2020-03-25 14:02:41.180293",
  "doctype": "DocType",
- "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
@@ -11,7 +10,9 @@
   "camera_version",
   "col_break1",
   "st_dte",
-  "end_dte"
+  "end_dte",
+  "sect_break1",
+  "table_8"
  ],
  "fields": [
   {
@@ -24,7 +25,8 @@
    "fieldname": "camera_serial",
    "fieldtype": "Link",
    "label": "Camera Serial",
-   "options": "Serial No"
+   "options": "Serial No",
+   "unique": 1
   },
   {
    "fetch_from": "serial_no.item_code",
@@ -45,10 +47,20 @@
    "fieldname": "end_dte",
    "fieldtype": "Date",
    "label": "End Date"
+  },
+  {
+   "fieldname": "sect_break1",
+   "fieldtype": "Section Break",
+   "label": "Testbenches Results"
+  },
+  {
+   "fieldname": "table_8",
+   "fieldtype": "Table",
+   "options": "Testbench Results Detail"
   }
  ],
  "links": [],
- "modified": "2020-03-25 14:07:17.874372",
+ "modified": "2020-03-27 08:25:17.179877",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",

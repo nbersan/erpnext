@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "creation": "2020-03-26 15:07:13.421040",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "cam_tst",
+  "sys_tst",
+  "mdm_tst",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Comments"
+  },
+  {
+   "fieldname": "cam_tst",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Camera Test",
+   "options": "\nPassed\nFailed"
+  },
+  {
+   "fieldname": "sys_tst",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "System Test",
+   "options": "\nPassed\nFailed"
+  },
+  {
+   "fieldname": "mdm_tst",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Modem Test",
+   "options": "\nPassed\nFailed"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-03-26 15:14:44.616018",
+ "modified_by": "Administrator",
+ "module": "Quality Management",
+ "name": "Testbench Results Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

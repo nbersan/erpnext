@@ -4,15 +4,12 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"label": _("Testbench"),
+			"label": _("TestBench"),
 			"items": [
 				{
 					"type": "doctype",
-					"name": "TestBench Results",
-					"description":_("TestBench Results."),
-					"onboard": 1,
-				},
-			]
+					"name": "Testbench Results",
+					"description":_("Testbench Results")
 		},
 		{
 			"label": _("Goal and Procedure"),
@@ -52,6 +49,12 @@ def get_data():
 					"type": "doctype",
 					"name": "Quality Action",
 					"description":_("Quality Action"),
+				},
+				{
+                                        "type": "doctype",
+                                        "name": "TestBench Results",
+                                        "description":_("TestBench Results."),
+
 				}
 			]
 		},
