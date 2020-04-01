@@ -11,8 +11,9 @@
   "col_break1",
   "st_dte",
   "end_dte",
+  "test_status",
   "sect_break1",
-  "table_8"
+  "testbench_results_detail"
  ],
  "fields": [
   {
@@ -51,16 +52,23 @@
   {
    "fieldname": "sect_break1",
    "fieldtype": "Section Break",
-   "label": "Testbenches Results"
+   "label": "Testbench Results"
   },
   {
-   "fieldname": "table_8",
+   "fieldname": "testbench_results_detail",
    "fieldtype": "Table",
    "options": "Testbench Results Detail"
+  },
+  {
+   "fieldname": "test_status",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Testbench Status",
+   "options": "Testbench Results State"
   }
  ],
  "links": [],
- "modified": "2020-03-27 08:25:17.179877",
+ "modified": "2020-04-01 09:58:14.838351",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",
