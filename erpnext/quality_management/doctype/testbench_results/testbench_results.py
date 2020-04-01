@@ -8,7 +8,7 @@ from frappe.model.document import Document
 from frappe.model.naming import make_autoname
 
 class TestBenchResults(Document):
-def autoname(self):
-	prefix = self.camera_serial
-	self.name = make_autoname(prefix + '_.###')
+	def autoname(self):
+		prefix = self.camera_serial
+		self.name = make_autoname(prefix + '_.###')
 
