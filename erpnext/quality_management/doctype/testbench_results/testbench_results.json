@@ -8,6 +8,7 @@
   "camera_serial",
   "camera_port",
   "camera_version",
+  "cam_con",
   "tot_number",
   "col_break1",
   "st_dte",
@@ -99,10 +100,17 @@
    "fieldtype": "Int",
    "hidden": 1,
    "label": "Total Test Number"
+  },
+  {
+   "default": "Online",
+   "fieldname": "cam_con",
+   "fieldtype": "Select",
+   "label": "Camera Connection",
+   "options": "Online\nOffline"
   }
  ],
  "links": [],
- "modified": "2020-04-02 09:53:28.765110",
+ "modified": "2020-04-02 16:31:33.482481",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",

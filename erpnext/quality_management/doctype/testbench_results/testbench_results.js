@@ -9,8 +9,6 @@ let tot_number;
 
 frappe.ui.form.on('TestBench Results', {
 	camera_serial: function(frm) {
-		//Automatically fill the camera port corresponding to the camera serial number.
-		cur_frm.add_fetch("camera_serial", "cam_port", "camera_port");
 		//Get the camera version corresponding to the Serial No, keeps only the 3 last characters and set the camera version field.
 		frappe.call({
 			method: "frappe.client.get_value",
@@ -18,22 +16,33 @@ frappe.ui.form.on('TestBench Results', {
 				doctype: "Serial No",
 				filters: {name: cur_frm.doc.camera_serial},
 				fieldname:[
-					"item_code"
+					"item_code",
+					"cam_port"
 				]
 			},
 			callback: function(r){
 				//console.log(r.message.item_code);
 				var it_code = r.message.item_code;
 				var version = it_code.substring(it_code.length - 3);
+				var port = r.message.cam_port;
 				//console.log(version);
 				cur_frm.set_value("camera_version",version);
+				cur_frm.set_value("camera_port",port);
 			}
 		});
 	},
 	refresh: function(frm,cdt,cdn) {
+		//Filter the proposed values in the camera_serial field.
+		frm.set_query("camera_serial", function() {
+			return {
+				filters:[
+					["Serial No","product_type","in","V1 Camera"],
+					["Serial No","status","in","To Be Tested"]
+				]
+			};
+		});
 		var d = locals[cdt][cdn];
 		test_table = cur_frm.doc.testbench_results_detail;
-		tst_st = cur_frm.doc.testbench_results_detail[0].date;
 		tst_lg = 0;
 		var id_fail = 0;
 		var fail = 0;
@@ -44,21 +53,19 @@ frappe.ui.form.on('TestBench Results', {
 		frm.set_value("tot_number",0);
 		frm.set_value("st_dte",tst_st);
 
-		//Filter the proposed values in the camera_serial field.
-		frm.set_query("camera_serial", function() {
-			return {
-				filters:[
-					["Serial No","product_type","in","V1 Camera"],
-					["Serial No","status","in","To Be Tested"]
-				]
-			};
-		});
-
-		//If no records in the testbench tabvle, set the testbench status as "Not Started".
-		if(test_table.length === 0) {
-			frm.set_value("test_status","Not Started");
+		//If no records in the testbench table, set the testbench status as "Not Started".
+		if(cur_frm.doc.testbench_results_detail.length === 0) {
+			if(cur_frm.doc.cam_con === "Offline") {
+				frm.set_value("test_status", "Camera Offline");
+			}
+			else {
+				frm.set_value("test_status","Not Started");
+			}
 		}
-		if(test_table.length === 1) {
+		if(cur_frm.doc.testbench_results_detail.length !== 0) {
+			tst_st = cur_frm.doc.testbench_results_detail[0].date;
+		}
+		if(test_table.length === 1 && test_table[0].date !== undefined) {
 			frm.set_value("st_dte",tst_st);
 
 			//When the first row is recorded, set the testbench status to "In Progress".

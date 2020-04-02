@@ -5,7 +5,8 @@ frappe.listview_settings['TestBench Results'] = {
 			"Not Started": "blue",
 			"In Progress": "yellow",
 			"Passed": "green",
-			"Failed": "red"
+			"Failed": "red",
+			"Camera Offline": "red"
 		}[doc.test_status],"test_status,=,"+ doc.test_status];
 	}
 };
