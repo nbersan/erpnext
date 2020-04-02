@@ -12,6 +12,12 @@ def get_data():
 					"description":_("TestBench Results"),
 					"onboard": 1,
 				},
+				{
+					"type": "doctype",
+					"name": "Crane Camera Issue",
+					"description":_("Crane Camera Issue"),
+					"onboard": 1,
+				},
 			]
 		},
 		{

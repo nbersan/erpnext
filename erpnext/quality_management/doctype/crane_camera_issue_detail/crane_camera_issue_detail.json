@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "creation": "2020-04-02 07:50:06.108553",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "fail_comp",
+  "act"
+ ],
+ "fields": [
+  {
+   "fieldname": "fail_comp",
+   "fieldtype": "Link",
+   "label": "Failing Component",
+   "options": "Item"
+  },
+  {
+   "fieldname": "act",
+   "fieldtype": "Select",
+   "label": "Action",
+   "options": "Replacement\nPowerCycle"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-04-02 07:51:44.753654",
+ "modified_by": "Administrator",
+ "module": "Quality Management",
+ "name": "Crane Camera Issue Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

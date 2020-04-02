@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "creation": "2020-04-01 15:27:15.826972",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tr_date",
+  "issue",
+  "action",
+  "st_aft_act"
+ ],
+ "fields": [
+  {
+   "fieldname": "issue",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Issue",
+   "options": "\nModem is not responding after 4 attempts.\nCamera: [Errno 110] Operation timed out\nCamera: Empty USB read\nCamera: No USB PTP device found"
+  },
+  {
+   "fieldname": "tr_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Action"
+  },
+  {
+   "fieldname": "st_aft_act",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status After Action",
+   "options": "\nSolved\nUnsolved"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-04-01 15:33:34.261472",
+ "modified_by": "Administrator",
+ "module": "Quality Management",
+ "name": "Testbench Troubleshooting",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

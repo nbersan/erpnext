@@ -13,7 +13,11 @@
   "end_dte",
   "test_status",
   "sect_break1",
-  "testbench_results_detail"
+  "testbench_results_detail",
+  "sect_break2",
+  "per_comp",
+  "sect_break3",
+  "troubleshooting"
  ],
  "fields": [
   {
@@ -68,10 +72,30 @@
    "in_standard_filter": 1,
    "label": "Testbench Status",
    "options": "Testbench Results State"
+  },
+  {
+   "fieldname": "sect_break2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "per_comp",
+   "fieldtype": "Percent",
+   "label": "% Completed",
+   "precision": "1"
+  },
+  {
+   "fieldname": "sect_break3",
+   "fieldtype": "Section Break",
+   "label": "Troubleshooting"
+  },
+  {
+   "fieldname": "troubleshooting",
+   "fieldtype": "Table",
+   "options": "Testbench Troubleshooting"
   }
  ],
  "links": [],
- "modified": "2020-04-01 14:11:07.678820",
+ "modified": "2020-04-01 15:31:59.108639",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",
