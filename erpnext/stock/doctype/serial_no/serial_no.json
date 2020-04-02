@@ -18,8 +18,6 @@
   "status",
   "cam_port",
   "case_v",
-  "under_test_state",
-  "testb_st_dte",
   "column_break1",
   "item_name",
   "description",
@@ -32,7 +30,6 @@
   "on_site",
   "is_drilled",
   "cc_location",
-  "testb_end_dte",
   "sub_items",
   "item_details",
   "sc_break1",
@@ -67,8 +64,6 @@
   "project",
   "invoice_details",
   "sales_invoice",
-  "qc",
-  "testbench_details",
   "warranty_amc_details",
   "column_break6",
   "warranty_expiry_date",
@@ -378,6 +373,7 @@
   {
    "fieldname": "warranty_amc_details",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Warranty / AMC Details"
   },
   {
@@ -404,6 +400,7 @@
   {
    "fieldname": "warranty_expiry_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Warranty Expiry Date",
    "oldfieldname": "warranty_expiry_date",
    "oldfieldtype": "Date",
@@ -412,12 +409,14 @@
   {
    "fieldname": "amc_expiry_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "AMC Expiry Date",
    "oldfieldname": "amc_expiry_date",
    "oldfieldtype": "Date",
    "width": "150px"
   },
   {
+   "collapsible": 1,
    "fieldname": "more_info",
    "fieldtype": "Section Break",
    "label": "More Information"
@@ -578,46 +577,12 @@
    "fieldtype": "Select",
    "label": "Case Version",
    "options": "\nSTD\nWCV\nKCV"
-  },
-  {
-   "fieldname": "qc",
-   "fieldtype": "Section Break",
-   "label": "Quality Control"
-  },
-  {
-   "depends_on": "eval:doc.status===\"Under Testing\"",
-   "fieldname": "testb_st_dte",
-   "fieldtype": "Date",
-   "ignore_user_permissions": 1,
-   "label": "TestBench Start Date"
-  },
-  {
-   "allow_bulk_edit": 1,
-   "depends_on": "eval:doc.item_group == \"Full Systems\"",
-   "fieldname": "testbench_details",
-   "fieldtype": "Table",
-   "label": "TestBench Details",
-   "options": "Testbench Details"
-  },
-  {
-   "depends_on": "eval:doc.status===\"Under Testing\"",
-   "fieldname": "testb_end_dte",
-   "fieldtype": "Date",
-   "label": "TestBench End Date"
-  },
-  {
-   "depends_on": "eval:doc.status===\"Under Testing\"",
-   "fieldname": "under_test_state",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Under Testing Status",
-   "options": "Serial No State"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-03-25 08:27:56.698331",
+ "modified": "2020-04-02 14:11:40.940695",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

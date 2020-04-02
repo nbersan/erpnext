@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "fail_test",
+  "log_type",
   "col_brk1",
   "log_name",
   "sect_brk1",
@@ -49,10 +50,16 @@
    "fieldname": "pot_sol",
    "fieldtype": "Table",
    "options": "Crane Camera Issue Detail"
+  },
+  {
+   "fieldname": "log_type",
+   "fieldtype": "Link",
+   "label": "Log Type",
+   "options": "Crane Camera Issue State"
   }
  ],
  "links": [],
- "modified": "2020-04-02 07:54:22.270527",
+ "modified": "2020-04-02 08:27:19.624830",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "Crane Camera Issue",
