@@ -49,7 +49,7 @@ frappe.ui.form.on('TestBench Results', {
 			return {
 				filters:[
 					["Serial No","product_type","in","V1 Camera"],
-					//["Serial No","status","in","Under Testing"]
+					["Serial No","status","in","To Be Tested"]
 				]
 			};
 		});
