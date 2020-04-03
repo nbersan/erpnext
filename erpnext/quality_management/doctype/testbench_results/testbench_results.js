@@ -31,7 +31,7 @@ frappe.ui.form.on('TestBench Results', {
 			}
 		});
 	},
-	refresh: function(frm,cdt,cdn) {
+	onload: function(frm,cdt,cdn) {
 		//Filter the proposed values in the camera_serial field.
 		frm.set_query("camera_serial", function() {
 			return {
@@ -92,14 +92,27 @@ frappe.ui.form.on('TestBench Results', {
 			}
 		}
 		for (var i = 0; i < test_table.length; i++){
+			var previous
 			//If all the tests are passed, increase by one "tot_number".
 			if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && (test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A")) {
-				tot_number++;
+				if(test_table[i].idx !== 1){
+					test_table[i].number_passed = test_table[i-1].number_passed +1;
+					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+				}
+				else {
+					test_table[i].number_passed = 1;
+					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+				}
+				//test_table[i].number_passed = test_table[i-1].number_passed +1;
+				//console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+				//tot_number++;
 				//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
 			}
 			//If one of the tests failed, set "tot_number" to 0, set "id_fail" to "row id + 1" and increase by 1 "fail".
 			if(test_table[i].cam_tst === "Failed" || test_table[i].sys_tst === "Failed" || test_table[i].mdm_tst === "Failed") {
-				tot_number = 0;
+				test_table[i].number_passed = 0;
+				console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+				//tot_number = 0;
 				//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
 				id_fail = test_table[i].idx + 1;
 				fail++;
