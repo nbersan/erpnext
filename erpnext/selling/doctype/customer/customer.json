@@ -19,6 +19,9 @@
   "default_bank_account",
   "lead_name",
   "image",
+  "sdv_needed",
+  "wcv_needed",
+  "kcv_needed",
   "column_break0",
   "account_manager",
   "customer_group",
@@ -28,6 +31,10 @@
   "disabled",
   "is_internal_customer",
   "represents_company",
+  "sect_brk1",
+  "cam_nd",
+  "sect_brk2",
+  "cam_assigned",
   "allowed_to_transact_section",
   "companies",
   "currency_and_price_list",
@@ -101,7 +108,6 @@
    "oldfieldname": "customer_name",
    "oldfieldtype": "Data",
    "reqd": 1,
-   "search_index": 1,
    "unique": 1
   },
   {
@@ -466,13 +472,50 @@
    "fieldtype": "Table",
    "label": "Credit Limit",
    "options": "Customer Credit Limit"
+  },
+  {
+   "fieldname": "sect_brk1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "cam_nd",
+   "fieldtype": "Table",
+   "label": "Cameras Needed",
+   "options": "Customer Cameras"
+  },
+  {
+   "fieldname": "sect_brk2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "cam_assigned",
+   "fieldtype": "Table",
+   "label": "Cameras Assigned",
+   "options": "Customer Cameras Assigned"
+  },
+  {
+   "fieldname": "wcv_needed",
+   "fieldtype": "Int",
+   "label": "WCV Needed"
+  },
+  {
+   "fieldname": "kcv_needed",
+   "fieldtype": "Int",
+   "label": "KCV Needed"
+  },
+  {
+   "fieldname": "sdv_needed",
+   "fieldtype": "Int",
+   "label": "SDV Needed"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-01-13 07:39:10.877623",
+ "modified": "2020-04-03 16:27:38.497929",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

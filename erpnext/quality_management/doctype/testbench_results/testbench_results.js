@@ -51,7 +51,7 @@ frappe.ui.form.on('TestBench Results', {
 		tot_number = 0;
 		tst_st_day = moment.weekdays(cur_frm.doc.st_dte);
 		frm.set_value("tot_number",0);
-		frm.set_value("st_dte",tst_st);
+		//frm.set_value("st_dte",tst_st);
 
 		//If no records in the testbench table, set the testbench status as "Not Started".
 		if(cur_frm.doc.testbench_results_detail.length === 0) {
@@ -98,10 +98,12 @@ frappe.ui.form.on('TestBench Results', {
 				if(test_table[i].idx !== 1){
 					test_table[i].number_passed = test_table[i-1].number_passed +1;
 					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+					frm.set_value("tot_number", test_table[i].number_passed);
 				}
 				else {
 					test_table[i].number_passed = 1;
 					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+					frm.set_value("tot_number", test_table[i].number_passed);
 				}
 				//test_table[i].number_passed = test_table[i-1].number_passed +1;
 				//console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
@@ -116,6 +118,7 @@ frappe.ui.form.on('TestBench Results', {
 				//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
 				id_fail = test_table[i].idx + 1;
 				fail++;
+				frm.set_value("tot_number", test_table[i].number_passed);
 
 				//If one of the tests failed, set the testbench end date to "next row date + 6".
 				if(id_fail < test_table.length) {
@@ -164,76 +167,88 @@ frappe.ui.form.on('TestBench Results', {
 		}
 
 		//Set % Completed to 0 if the tot_number field value is 0.
-		if(tot_number === 0) {
+		if(cur_frm.doc.tot_number === 0) {
 			frm.set_value("per_comp",0);
 		}
 		if(tst_lg === 5) {
 
 			//Set % Completed to 20 if the tot_number field value is 1.
-			if(tot_number === 1) {
+			if(cur_frm.doc.tot_number === 1) {
 				frm.set_value("per_comp",20);
 			}
 
 			//Set % Completed to 40 if the tot_number field value is 2.
-			if(tot_number === 2) {
+			if(cur_frm.doc.tot_number === 2) {
 				frm.set_value("per_comp",40);
 			}
 
 			//Set % Completed to 60 if the tot_number field value is 3.
-			if(tot_number === 3) {
+			if(cur_frm.doc.tot_number === 3) {
 				frm.set_value("per_comp",60);
 			}
 
 			//Set % Completed to 80 if the tot_number field value is 4.
-			if(tot_number === 4) {
+			if(cur_frm.doc.tot_number === 4) {
 				frm.set_value("per_comp",80);
 			}
 
 			//Set % Completed to 100 if the tot_number field value is 5.
-			if(tot_number >= 5) {
+			if(cur_frm.doc.tot_number >= 5) {
 				frm.set_value("per_comp",100);
 			}
 		}
 		if(tst_lg === 6) {
 			//Set % Completed to 20 if the tot_number field value is 1.
-			if(tot_number === 1) {
+			if(cur_frm.doc.tot_number === 1) {
 				frm.set_value("per_comp",20);
 			}
 
 			//Set % Completed to 40 if the tot_number field value is 2.
-			if(tot_number === 2) {
+			if(cur_frm.doc.tot_number === 2) {
 				frm.set_value("per_comp",40);
 			}
 
 			//Set % Completed to 60 if the tot_number field value is 3.
-			if(tot_number === 3) {
+			if(cur_frm.doc.tot_number === 3) {
 				frm.set_value("per_comp",60);
 			}
 
 			//Set % Completed to 80 if the tot_number field value is 4.
-			if(tot_number === 4) {
+			if(cur_frm.doc.tot_number === 4) {
 				frm.set_value("per_comp",80);
 			}
 
 			//Set % Completed to 90 if the tot_number field value is 5.
-			if(tot_number === 5) {
+			if(cur_frm.doc.tot_number === 5) {
 				frm.set_value("per_comp",90);
 			}
 
 			//Set % Completed to 100 if the tot_number field value is 6.
-			if(tot_number >= 6) {
+			if(cur_frm.doc.tot_number >= 6) {
 				frm.set_value("per_comp",100);
 			}
 		}
 		//If "tot_number" is equal to the testbench length, set the testbench status to "Passed".
-		if(tot_number >= tst_lg) {
+		if(cur_frm.doc.tot_number >= tst_lg) {
 			frm.set_value("test_status","Passed");
 		}
-		//console.log(cur_frm.doc.tot_number);
+		console.log(cur_frm.doc.per_comp);
 	},
 	//If the testbench status changes, save the document.
 	test_status: function(frm) {
 		frm.save();
+		if(cur_frm.doc.test_status === "In Progress") {
+			frappe.call({
+				method: "frappe.client.set_value",
+				args: {
+					doctype: "Serial No",
+					name: cur_frm.doc.camera_serial,
+					fieldname: {
+						status: "Under Testing"
+					}
+				}
+			});
+		}
 		if(cur_frm.doc.test_status === "Passed") {
 			frappe.call({
 				method: "frappe.client.set_value",

@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "creation": "2020-04-03 15:07:26.172360",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cam_port",
+  "serial_no",
+  "item_code",
+  "is_sent",
+  "is_back",
+  "shp_date",
+  "rtn_date"
+ ],
+ "fields": [
+  {
+   "fetch_from": "serial_no.cam_port",
+   "fetch_if_empty": 1,
+   "fieldname": "cam_port",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Port",
+   "options": "Serial No"
+  },
+  {
+   "fetch_from": "cam_port.parent_item_serial_no",
+   "fetch_if_empty": 1,
+   "fieldname": "serial_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Camera",
+   "options": "Serial No"
+  },
+  {
+   "fetch_from": "serial_no.item_code",
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "label": "Camera Version"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_sent",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Sent"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_back",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Back"
+  },
+  {
+   "fieldname": "shp_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Shipping Date"
+  },
+  {
+   "fieldname": "rtn_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Return Date"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-04-03 15:07:26.172360",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Customer Cameras Assigned",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

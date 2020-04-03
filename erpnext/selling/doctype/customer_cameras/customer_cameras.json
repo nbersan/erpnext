@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "creation": "2020-04-03 14:59:04.094489",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "site",
+  "status",
+  "sdv_nd",
+  "wcv_nd",
+  "kcv_nd"
+ ],
+ "fields": [
+  {
+   "fieldname": "site",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Site"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nDone"
+  },
+  {
+   "fieldname": "sdv_nd",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "SDV Needed"
+  },
+  {
+   "fieldname": "wcv_nd",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "WCV Needed"
+  },
+  {
+   "fieldname": "kcv_nd",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "KCV Needed"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-04-03 15:01:22.933391",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Customer Cameras",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
