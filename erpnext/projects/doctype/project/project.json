@@ -272,6 +272,7 @@
    "options": "Cameras Assigned"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "rpl_cam",
    "fieldtype": "Table",
    "label": "Replacement Cameras",
@@ -531,7 +532,7 @@
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-03-23 14:56:06.503591",
+ "modified": "2020-04-06 10:29:46.335139",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",

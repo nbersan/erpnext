@@ -19,9 +19,17 @@
   "default_bank_account",
   "lead_name",
   "image",
-  "sdv_needed",
-  "wcv_needed",
-  "kcv_needed",
+  "cam_tot",
+  "col_brk4",
+  "cam_need",
+  "col_brk5",
+  "cam_left",
+  "col_brk6",
+  "cam_back",
+  "cameras_detail_section",
+  "sdv_tot",
+  "wcv_tot",
+  "kcv_tot",
   "column_break0",
   "account_manager",
   "customer_group",
@@ -29,8 +37,19 @@
   "tax_id",
   "tax_category",
   "disabled",
+  "sdv_needed",
+  "wcv_needed",
+  "kcv_needed",
+  "col_brk1",
   "is_internal_customer",
   "represents_company",
+  "sdv_left",
+  "wcv_left",
+  "kcv_left",
+  "col_brk2",
+  "sdv_back",
+  "wcv_back",
+  "kcv_back",
   "sect_brk1",
   "cam_nd",
   "sect_brk2",
@@ -79,7 +98,7 @@
   {
    "fieldname": "basic_info",
    "fieldtype": "Section Break",
-   "label": "Name and Type",
+   "label": "Cameras Summary",
    "oldfieldtype": "Section Break",
    "options": "fa fa-user"
   },
@@ -121,6 +140,7 @@
    "default": "Company",
    "fieldname": "customer_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Type",
    "oldfieldname": "customer_type",
    "oldfieldtype": "Select",
@@ -130,12 +150,14 @@
   {
    "fieldname": "default_bank_account",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Default Bank Account",
    "options": "Bank Account"
   },
   {
    "fieldname": "lead_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "From Lead",
    "no_copy": 1,
    "oldfieldname": "lead_name",
@@ -159,41 +181,44 @@
   {
    "fieldname": "account_manager",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Account Manager",
    "options": "User"
   },
   {
    "fieldname": "customer_group",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Customer Group",
    "oldfieldname": "customer_group",
    "oldfieldtype": "Link",
    "options": "Customer Group",
-   "reqd": 1,
    "search_index": 1
   },
   {
    "fieldname": "territory",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Territory",
    "oldfieldname": "territory",
    "oldfieldtype": "Link",
    "options": "Territory",
-   "print_hide": 1,
-   "reqd": 1
+   "print_hide": 1
   },
   {
    "fieldname": "tax_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Tax ID"
   },
   {
    "fieldname": "tax_category",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Tax Category",
    "options": "Tax Category"
   },
@@ -201,12 +226,15 @@
    "default": "0",
    "fieldname": "disabled",
    "fieldtype": "Check",
+   "hidden": 1,
+   "in_standard_filter": 1,
    "label": "Disabled"
   },
   {
    "default": "0",
    "fieldname": "is_internal_customer",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Is Internal Customer"
   },
   {
@@ -497,25 +525,116 @@
   },
   {
    "fieldname": "wcv_needed",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "WCV Needed"
   },
   {
    "fieldname": "kcv_needed",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "KCV Needed"
   },
   {
    "fieldname": "sdv_needed",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "SDV Needed"
+  },
+  {
+   "fieldname": "col_brk1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "col_brk2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sdv_tot",
+   "fieldtype": "Data",
+   "label": "SDV Total"
+  },
+  {
+   "fieldname": "wcv_tot",
+   "fieldtype": "Data",
+   "label": "WCV Total"
+  },
+  {
+   "fieldname": "kcv_tot",
+   "fieldtype": "Data",
+   "label": "KCV Total"
+  },
+  {
+   "fieldname": "sdv_left",
+   "fieldtype": "Data",
+   "label": "SDV On Site"
+  },
+  {
+   "fieldname": "wcv_left",
+   "fieldtype": "Data",
+   "label": "WCV On Site"
+  },
+  {
+   "fieldname": "kcv_left",
+   "fieldtype": "Data",
+   "label": "KCV On Site"
+  },
+  {
+   "fieldname": "sdv_back",
+   "fieldtype": "Data",
+   "label": "SDV To Be Returned"
+  },
+  {
+   "fieldname": "wcv_back",
+   "fieldtype": "Data",
+   "label": "WCV To Be Returned"
+  },
+  {
+   "fieldname": "kcv_back",
+   "fieldtype": "Data",
+   "label": "KCV To Be Returned"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cameras_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Cameras Detail"
+  },
+  {
+   "fieldname": "cam_tot",
+   "fieldtype": "Data",
+   "label": "Cameras Total"
+  },
+  {
+   "fieldname": "cam_need",
+   "fieldtype": "Data",
+   "label": "Cameras Needed"
+  },
+  {
+   "fieldname": "cam_left",
+   "fieldtype": "Data",
+   "label": "Cameras On Site"
+  },
+  {
+   "fieldname": "cam_back",
+   "fieldtype": "Data",
+   "label": "Cameras To Be Returned"
+  },
+  {
+   "fieldname": "col_brk4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "col_brk5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "col_brk6",
+   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-04-03 16:27:38.497929",
+ "modified": "2020-04-06 11:41:47.847050",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
