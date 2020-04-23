@@ -1,6 +1,7 @@
 // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
+
 cur_frm.add_fetch("customer", "customer_name", "customer_name")
 cur_frm.add_fetch("supplier", "supplier_name", "supplier_name")
 cur_frm.add_fetch("item_code", "item_name", "item_name")
@@ -20,6 +21,10 @@ let tst_port;
 
 frappe.ui.form.on('Serial No', {
 	refresh: function(frm) {
+		if(cur_frm.doc.item_code === "SDCID") {
+			let sd_no = cur_frm.doc.name.substr(cur_frm.doc.name.length-3);
+			frm.set_value("sd_no",sd_no);
+		}
 		tst_port = cur_frm.doc.cam_port;
 		frm.toggle_enable("item_code", frm.doc.__islocal);
 		table = cur_frm.doc.item_details;

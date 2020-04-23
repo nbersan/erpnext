@@ -50,6 +50,8 @@ frappe.ui.form.on('TestBench Results', {
 		var counter = 0;
 		tot_number = 0;
 		tst_st_day = moment.weekdays(cur_frm.doc.st_dte);
+		console.log(cur_frm.doc.st_dte + " was " + tst_st_day);
+		console.log(typeof(cur_frm.doc.st_dte));
 		frm.set_value("tot_number",0);
 		//frm.set_value("st_dte",tst_st);
 
@@ -64,9 +66,10 @@ frappe.ui.form.on('TestBench Results', {
 		}
 		if(cur_frm.doc.testbench_results_detail.length !== 0) {
 			tst_st = cur_frm.doc.testbench_results_detail[0].date;
+			frm.set_value("st_dte", tst_st);
 		}
 		if(test_table.length === 1 && test_table[0].date !== undefined) {
-			frm.set_value("st_dte",tst_st);
+			//frm.set_value("st_dte",tst_st);
 
 			//When the first row is recorded, set the testbench status to "In Progress".
 			frm.set_value("test_status","In Progress");
@@ -77,6 +80,7 @@ frappe.ui.form.on('TestBench Results', {
 				//If the testbench start date is a Monday, set the testbench end date to "testbench start date +4 days".
 				if(tst_st_day === "Monday") {
 					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 4));
+					console.log("Was monday");
 				}
 
 				//If the testbench start date is not a Monday, set the testbench end date to "testbench start date +6 days".
@@ -162,10 +166,13 @@ frappe.ui.form.on('TestBench Results', {
 			tst_lg = 5;
 		}
 		//If the tests failed three times, set the testbench status to "Failed".
-		if(fail >= 3) {
+		if(fail >= 3 && cur_frm.doc.tot_number === 0) {
 			frm.set_value("test_status","Failed");
 		}
-
+		//If the test failed three times and then passed, set the testbench status to "In Progress".
+		if(fail >= 3 && cur_frm.doc.tot_number !== 0) {
+			frm.set_value("test_status","In Progress");
+		}
 		//Set % Completed to 0 if the tot_number field value is 0.
 		if(cur_frm.doc.tot_number === 0) {
 			frm.set_value("per_comp",0);

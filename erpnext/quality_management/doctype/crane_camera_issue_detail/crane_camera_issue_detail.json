@@ -5,6 +5,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "cam_vs",
   "fail_comp",
   "act"
  ],
@@ -12,19 +13,28 @@
   {
    "fieldname": "fail_comp",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Failing Component",
    "options": "Item"
   },
   {
    "fieldname": "act",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Action",
    "options": "Replacement\nPowerCycle"
+  },
+  {
+   "fieldname": "cam_vs",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Camera Version",
+   "options": "SDV\nWCV\nKCV"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-04-02 07:51:44.753654",
+ "modified": "2020-04-16 08:26:38.743678",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "Crane Camera Issue Detail",

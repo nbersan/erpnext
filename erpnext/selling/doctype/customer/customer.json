@@ -92,7 +92,8 @@
   "default_commission_rate",
   "sales_team_section",
   "sales_team",
-  "customer_pos_id"
+  "customer_pos_id",
+  "data_84"
  ],
  "fields": [
   {
@@ -108,7 +109,6 @@
    "label": "Series",
    "no_copy": 1,
    "options": "CUST-.YYYY.-",
-   "hidden": 1,
    "set_only_once": 1
   },
   {
@@ -116,7 +116,6 @@
    "fieldname": "salutation",
    "fieldtype": "Link",
    "label": "Salutation",
-   "hidden": 1,
    "options": "Salutation"
   },
   {
@@ -129,7 +128,6 @@
    "oldfieldname": "customer_name",
    "oldfieldtype": "Data",
    "reqd": 1,
-   "hidden": 1,
    "unique": 1
   },
   {
@@ -137,7 +135,6 @@
    "fieldname": "gender",
    "fieldtype": "Link",
    "label": "Gender",
-   "hidden": 1,
    "options": "Gender"
   },
   {
@@ -149,7 +146,6 @@
    "oldfieldname": "customer_type",
    "oldfieldtype": "Select",
    "options": "Company\nIndividual",
-   "hidden": 1,
    "reqd": 1
   },
   {
@@ -181,7 +177,6 @@
   {
    "fieldname": "column_break0",
    "fieldtype": "Column Break",
-   "hidden": 1,
    "width": "50%"
   },
   {
@@ -250,7 +245,6 @@
    "ignore_user_permissions": 1,
    "label": "Represents Company",
    "options": "Company",
-   "hidden": 1,
    "unique": 1
   },
   {
@@ -264,8 +258,8 @@
    "depends_on": "represents_company",
    "fieldname": "companies",
    "fieldtype": "Table",
-   "label": "Allowed To Transact With",
    "hidden": 1,
+   "label": "Allowed To Transact With",
    "options": "Allowed To Transact With"
   },
   {
@@ -278,45 +272,45 @@
   {
    "fieldname": "default_currency",
    "fieldtype": "Link",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Billing Currency",
    "no_copy": 1,
-   "hidden": 1,
    "options": "Currency"
   },
   {
    "fieldname": "default_price_list",
    "fieldtype": "Link",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Default Price List",
-   "hidden": 1,
    "options": "Price List"
   },
   {
    "fieldname": "column_break_14",
-   "hidden": 1,
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "hidden": 1
   },
   {
    "fieldname": "language",
    "fieldtype": "Link",
-   "label": "Print Language",
    "hidden": 1,
+   "label": "Print Language",
    "options": "Language"
   },
   {
    "depends_on": "eval:!doc.__islocal",
    "fieldname": "address_contacts",
    "fieldtype": "Section Break",
-   "label": "Address and Contact",
    "hidden": 1,
+   "label": "Address and Contact",
    "options": "fa fa-map-marker"
   },
   {
    "fieldname": "address_html",
    "fieldtype": "HTML",
-   "label": "Address HTML",
    "hidden": 1,
+   "label": "Address HTML",
    "read_only": 1
   },
   {
@@ -334,9 +328,9 @@
   {
    "fieldname": "contact_html",
    "fieldtype": "HTML",
+   "hidden": 1,
    "label": "Contact HTML",
    "oldfieldtype": "HTML",
-   "hidden": 1,
    "read_only": 1
   },
   {
@@ -350,8 +344,8 @@
    "description": "Reselect, if the chosen contact is edited after save",
    "fieldname": "customer_primary_contact",
    "fieldtype": "Link",
-   "label": "Customer Primary Contact",
    "hidden": 1,
+   "label": "Customer Primary Contact",
    "options": "Contact"
   },
   {
@@ -370,15 +364,15 @@
   },
   {
    "fieldname": "column_break_26",
-   "hidden": 1,
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "hidden": 1
   },
   {
    "description": "Reselect, if the chosen address is edited after save",
    "fieldname": "customer_primary_address",
    "fieldtype": "Link",
-   "label": "Customer Primary Address",
    "hidden": 1,
+   "label": "Customer Primary Address",
    "options": "Address"
   },
   {
@@ -398,8 +392,8 @@
    "description": "Mention if non-standard receivable account",
    "fieldname": "accounts",
    "fieldtype": "Table",
-   "label": "Accounts",
    "hidden": 1,
+   "label": "Accounts",
    "options": "Party Account"
   },
   {
@@ -412,8 +406,8 @@
   {
    "fieldname": "payment_terms",
    "fieldtype": "Link",
-   "label": "Default Payment Terms Template",
    "hidden": 1,
+   "label": "Default Payment Terms Template",
    "options": "Payment Terms Template"
   },
   {
@@ -421,37 +415,37 @@
    "collapsible_depends_on": "customer_details",
    "fieldname": "more_info",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "More Information",
    "oldfieldtype": "Section Break",
-   "hidden": 1,
    "options": "fa fa-file-text"
   },
   {
    "description": "Additional information regarding the customer.",
    "fieldname": "customer_details",
    "fieldtype": "Text",
+   "hidden": 1,
    "label": "Customer Details",
    "oldfieldname": "customer_details",
-   "hidden": 1,
    "oldfieldtype": "Code"
   },
   {
    "fieldname": "column_break_45",
-   "hidden": 1,
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "hidden": 1
   },
   {
    "fieldname": "market_segment",
    "fieldtype": "Link",
-   "label": "Market Segment",
    "hidden": 1,
+   "label": "Market Segment",
    "options": "Market Segment"
   },
   {
    "fieldname": "industry",
    "fieldtype": "Link",
-   "label": "Industry",
    "hidden": 1,
+   "label": "Industry",
    "options": "Industry Type"
   },
   {
@@ -471,17 +465,17 @@
   {
    "fieldname": "loyalty_program",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Loyalty Program",
    "no_copy": 1,
-   "hidden": 1,
    "options": "Loyalty Program"
   },
   {
    "fieldname": "loyalty_program_tier",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Loyalty Program Tier",
    "no_copy": 1,
-   "hidden": 1,
    "read_only": 1
   },
   {
@@ -489,27 +483,27 @@
    "collapsible_depends_on": "default_sales_partner",
    "fieldname": "sales_team_section_break",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Sales Partner and Commission",
    "oldfieldtype": "Section Break",
-   "hidden": 1,
    "options": "fa fa-group"
   },
   {
    "fieldname": "default_sales_partner",
    "fieldtype": "Link",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Sales Partner",
    "oldfieldname": "default_sales_partner",
    "oldfieldtype": "Link",
-   "hidden": 1,
    "options": "Sales Partner"
   },
   {
    "fieldname": "default_commission_rate",
    "fieldtype": "Float",
+   "hidden": 1,
    "label": "Commission Rate",
    "oldfieldname": "default_commission_rate",
-   "hidden": 1,
    "oldfieldtype": "Currency"
   },
   {
@@ -523,28 +517,28 @@
   {
    "fieldname": "sales_team",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Sales Team Details",
    "oldfieldname": "sales_team",
    "oldfieldtype": "Table",
-   "hidden": 1,
    "options": "Sales Team"
   },
   {
    "fieldname": "customer_pos_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Customer POS id",
    "no_copy": 1,
    "print_hide": 1,
    "read_only": 1,
-   "hidden": 1,
    "report_hide": 1
   },
   {
    "default": "0",
    "fieldname": "credit_limits",
    "fieldtype": "Table",
-   "label": "Credit Limit",
    "hidden": 1,
+   "label": "Credit Limit",
    "options": "Customer Credit Limit"
   },
   {
@@ -674,13 +668,17 @@
   {
    "fieldname": "col_brk6",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_84",
+   "fieldtype": "Data"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-04-06 11:41:47.847050",
+ "modified": "2020-04-08 15:26:00.673405",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
