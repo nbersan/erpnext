@@ -49,9 +49,10 @@ frappe.ui.form.on('TestBench Results', {
 		var k = (test_table.length -5);
 		var counter = 0;
 		tot_number = 0;
-		tst_st_day = moment.weekdays(cur_frm.doc.st_dte);
-		console.log(cur_frm.doc.st_dte + " was " + tst_st_day);
-		console.log(typeof(cur_frm.doc.st_dte));
+		tst_st_day = moment(cur_frm.doc.st_dte).format("dddd");
+		console.log(tst_st_day + " cest le bon");
+		//console.log(cur_frm.doc.st_dte + " was " + tst_st_day);
+		//console.log(typeof(cur_frm.doc.st_dte));
 		frm.set_value("tot_number",0);
 		//frm.set_value("st_dte",tst_st);
 
@@ -66,10 +67,10 @@ frappe.ui.form.on('TestBench Results', {
 		}
 		if(cur_frm.doc.testbench_results_detail.length !== 0) {
 			tst_st = cur_frm.doc.testbench_results_detail[0].date;
-			frm.set_value("st_dte", tst_st);
+			//frm.set_value("st_dte", tst_st);
 		}
-		if(test_table.length === 1 && test_table[0].date !== undefined) {
-			//frm.set_value("st_dte",tst_st);
+		if(test_table.length !== 0 && test_table[0].date !== undefined) {
+			frm.set_value("st_dte",tst_st);
 
 			//When the first row is recorded, set the testbench status to "In Progress".
 			frm.set_value("test_status","In Progress");
@@ -86,6 +87,7 @@ frappe.ui.form.on('TestBench Results', {
 				//If the testbench start date is not a Monday, set the testbench end date to "testbench start date +6 days".
 				else {
 					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 6));
+					console.log("Was Monday, Has Comments");
 				}
 			}
 			//If the first row has a comment.
@@ -136,7 +138,7 @@ frappe.ui.form.on('TestBench Results', {
 			If the penultimate row date is Friday and this date +3 days (week-end) doesn't correspond to the Testbench end date
 			if True, set the Testbench end date to the row date +3 days.
 			*/
-			if(test_table[i].idx === test_table.length-1 && moment.weekdays(test_table[i].date) === "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
+			if(test_table[i].idx === test_table.length-1 && cur_frm.doc.tot_number >= 4 && moment(test_table[i].date).format("dddd") === "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
 				if(frappe.datetime.add_days(test_table[i].date, 3) !== cur_frm.doc.end_dte) {
 					frm.set_value("end_dte",frappe.datetime.add_days(test_table[i].date, 3));
 				}
@@ -146,7 +148,7 @@ frappe.ui.form.on('TestBench Results', {
 			If the penultimate row date is not Friday and this date +1 day doesn't correspond to the Testbench end date
 			if True, set the Testbench end date to the row date +1 day.
 			*/
-			if(test_table[i].idx === test_table.length-1 && moment.weekdays(test_table[i].date) !== "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
+			if(test_table[i].idx === test_table.length-1 && cur_frm.doc.tot_number >= 4 && moment(test_table[i].date).format("dddd") !== "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
 				if(frappe.datetime.add_days(test_table[i].date, 1) !== cur_frm.doc.end_dte) {
 					frm.set_value("end_dte",frappe.datetime.add_days(test_table[i].date, 1));
 				}

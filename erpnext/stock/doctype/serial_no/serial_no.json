@@ -47,6 +47,9 @@
   "col_brk3",
   "ceth500",
   "sdc",
+  "ethadapt",
+  "col_brk4",
+  "cssrpck",
   "purchase_details",
   "column_break2",
   "purchase_document_type",
@@ -659,12 +662,28 @@
    "fieldname": "vs",
    "fieldtype": "Data",
    "label": "Version"
+  },
+  {
+   "fieldname": "col_brk4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "cssrpck",
+   "fieldtype": "Check",
+   "label": "CSSRPck"
+  },
+  {
+   "default": "0",
+   "fieldname": "ethadapt",
+   "fieldtype": "Check",
+   "label": "EAM12"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-04-17 14:42:38.562638",
+ "modified": "2020-04-28 08:38:35.517742",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
