@@ -550,7 +550,7 @@
    "fieldname": "cam_nd",
    "fieldtype": "Table",
    "label": "Cameras Needed",
-   "options": "Customer Cameras"
+   "options": "Customer Cameras Needed"
   },
   {
    "fieldname": "sect_brk2",
@@ -678,7 +678,7 @@
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-04-08 15:26:00.673405",
+ "modified": "2020-05-05 13:47:15.416176",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

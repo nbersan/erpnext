@@ -1,7 +1,136 @@
 // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
+let cam_ass;
+
 frappe.ui.form.on("Customer", {
+	refresh: function(frm,cdt,cdn) {
+		var d = locals[cdt][cdn];
+		cam_ass = cur_frm.doc.cam_assigned;
+		var total_sdv = 0;
+		var total_sdv_nd = 0;
+		var total_sdv_left = 0;
+		var sdv_needed = 0;
+		var sdv_back = 0;
+		var total_wcv = 0;
+		var total_wcv_nd = 0;
+		var total_wcv_left = 0;
+		var wcv_needed = 0;
+		var wcv_back = 0;
+		var total_kcv = 0;
+		var total_kcv_nd = 0;
+		var total_kcv_left = 0;
+		var kcv_needed = 0;
+		var kcv_back = 0;
+		var cam_tot = cur_frm.doc.sdv_tot + cur_frm.doc.wcv_tot + cur_frm.doc.kcv_tot;
+		var cam_need = cur_frm.doc.sdv_needed + cur_frm.doc.wcv_needed + cur_frm.doc.kcv_needed;
+		var cam_left = cur_frm.doc.sdv_left + cur_frm.doc.wcv_left + cur_frm.doc.kcv_left;
+		var cam_back = cur_frm.doc.sdv_back + cur_frm.doc.wcv_back + cur_frm.doc.kcv_back;
+
+		cur_frm.doc.cam_nd.forEach(function(d) {
+			if(d.sdv_nd !== 0) {
+				total_sdv += d.sdv_nd;
+			}
+			if(d.wcv_nd !== 0) {
+				total_wcv += d.wcv_nd;
+			}
+			if(d.kcv_nd !== 0) {
+				total_kcv += d.kcv_nd;
+			}
+		});
+
+		cur_frm.doc.cam_nd.forEach(function(d) {
+			if(d.status !== "Done" && d.sdv_nd !== 0) {
+				total_sdv_nd += d.sdv_nd;
+			}
+			if(d.status !== "Done" && d.wcv_nd !== 0) {
+				total_wcv_nd += d.wcv_nd;
+			}
+			if(d.status !== "Done" && d.kcv_nd !== 0) {
+				total_kcv_nd += d.kcv_nd;
+			}
+		});
+
+		frm.set_value("sdv_tot",total_sdv);
+		frm.set_value("wcv_tot",total_wcv);
+		frm.set_value("kcv_tot",total_kcv);
+		
+		cur_frm.doc.cam_assigned.forEach(function(d) {
+			if(d.is_sent === 1 && d.is_back === 0 && d.item_code === "CCV1SDV") {
+				total_sdv_left++;
+			}
+			if(d.is_sent === 1 && d.is_back === 0 && d.item_code === "CCV1WCV") {
+				total_wcv_left++;
+			}
+			if(d.is_sent === 1 && d.is_back === 0 && d.item_code === "CCV1KCV") {
+				total_kcv_left++;
+			}
+		});
+		
+		frm.set_value("sdv_left",total_sdv_left);
+		frm.set_value("wcv_left",total_wcv_left);
+		frm.set_value("kcv_left",total_kcv_left);
+		
+		if((total_sdv_nd - total_sdv_left) >= 0) {
+			sdv_needed = total_sdv_nd - total_sdv_left;
+			frm.set_value("sdv_needed",sdv_needed);
+			sdv_back = 0;
+			frm.set_value("sdv_back",sdv_back);
+		} else {
+			sdv_back = -(total_sdv_nd - total_sdv_left);
+			sdv_needed = 0;
+			frm.set_value("sdv_back",sdv_back);
+			frm.set_value("sdv_needed",sdv_needed);
+		}
+		if((total_wcv_nd - total_wcv_left) >= 0) {
+			wcv_needed = total_wcv_nd - total_wcv_left;
+			frm.set_value("wcv_needed",wcv_needed);
+			wcv_back = 0;
+			frm.set_value("wcv_back",wcv_back);
+		} else {
+			wcv_back = -(total_wcv_nd - total_wcv_left);
+			frm.set_value("wcv_back",wcv_back);
+			wcv_needed = 0;
+			frm.set_value("wcv_needed",wcv_needed);
+		}
+		if((total_kcv_nd - total_kcv_left) >= 0) {
+			kcv_needed = total_kcv_nd - total_kcv_left;
+			frm.set_value("kcv_needed",kcv_needed);
+			kcv_back = 0;
+			frm.set_value("kcv_back",kcv_back);
+		} else {
+			kcv_back = -(total_kcv_nd - total_kcv_left);
+			frm.set_value("kcv_back",kcv_back);
+			kcv_needed = 0;
+			frm.set_value("kcv_needed",kcv_needed);
+		}
+
+		frm.set_value("cam_tot",cam_tot);
+		frm.set_value("cam_need",cam_need);
+		frm.set_value("cam_left",cam_left);
+		frm.set_value("cam_back",cam_back);
+
+		for (var i = 0; i < cam_ass.length; i++) {
+			if(cam_ass[i].is_sent === 0 && cam_ass[i].is_back === 0) {
+				frappe.call({
+					method: "frappe.client.set_value",
+					args: {
+						doctype: "Serial No",
+						name: cam_ass[i].serial_no,
+						fieldname: {
+							status: "Committed",
+							on_site: cur_frm.doc.customer_name
+						}
+					}
+				});
+			}
+		}
+	},
+
+	cam_need: function(frm) {
+		frm.save();
+	},
+
 	setup: function(frm) {
 
 		frm.make_methods = {

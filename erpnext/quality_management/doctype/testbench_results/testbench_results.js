@@ -270,5 +270,36 @@ frappe.ui.form.on('TestBench Results', {
 				}
 			});
 		}
+	},
+	refresh: function(frm) {
+		let day_event;
+		frappe.call({
+			method: "frappe.client.get_count",
+			args: {
+				doctype: "Event",
+				filters: {'starts_on': cur_frm.doc.end_dte},
+				fieldname: ["name","subject"]
+			},
+			callback: function(r){
+				//console.log(r.message);
+				day_event = r.message;
+				console.log(day_event);
+				if (day_event === 1 && moment(cur_frm.doc.end_dte).format("dddd") === "Friday") {
+					console.log("It's Friday");
+					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,3));
+				}
+				if (day_event === 1 && moment(cur_frm.doc.end_dte).format("dddd") !== "Friday") {
+					console.log("It's not Friday");
+					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,1));
+				}
+			}
+		});
+		if (moment(cur_frm.doc.end_dte).format("dddd") === "Saturday") {
+			frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,2));
+		}
+		if (moment(cur_frm.doc.end_dte).format("dddd") === "Sunday") {
+			frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,1));
+		}
+		//frm.save();
 	}
 });

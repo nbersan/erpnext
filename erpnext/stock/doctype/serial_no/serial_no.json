@@ -20,6 +20,7 @@
   "status",
   "cam_port",
   "case_v",
+  "on_site",
   "column_break1",
   "sd_type",
   "vs",
@@ -31,7 +32,6 @@
   "parent_item_serial_no",
   "sales_order",
   "product_type",
-  "on_site",
   "is_drilled",
   "cc_location",
   "sub_items",
@@ -527,7 +527,7 @@
    "label": "IMEI No"
   },
   {
-   "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status == \"Shipped\")",
+   "depends_on": "eval:doc.item_group == \"Full Systems\"",
    "fieldname": "on_site",
    "fieldtype": "Data",
    "label": "On Site"
@@ -683,7 +683,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-04-28 08:38:35.517742",
+ "modified": "2020-05-05 11:36:41.370000",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

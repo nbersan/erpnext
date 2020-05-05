@@ -34,8 +34,6 @@
   "column_break_14",
   "sales_order",
   "sct_br_1",
-  "cameras_assigned",
-  "rpl_cam",
   "users_section",
   "users",
   "copied_from",
@@ -263,20 +261,6 @@
    "fieldname": "sct_br_1",
    "fieldtype": "Section Break",
    "label": "Cameras"
-  },
-  {
-   "allow_bulk_edit": 1,
-   "fieldname": "cameras_assigned",
-   "fieldtype": "Table",
-   "label": "Cameras Assigned",
-   "options": "Cameras Assigned"
-  },
-  {
-   "allow_bulk_edit": 1,
-   "fieldname": "rpl_cam",
-   "fieldtype": "Table",
-   "label": "Replacement Cameras",
-   "options": "Cameras Assigned"
   },
   {
    "collapsible": 1,
@@ -532,7 +516,7 @@
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-04-06 10:29:46.335139",
+ "modified": "2020-05-05 13:49:13.031126",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
