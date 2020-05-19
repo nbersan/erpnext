@@ -89,6 +89,9 @@ frappe.ui.form.on('Serial No', {
 				}
 			}
 		}
+	},
+	status: function(frm) {
+		frm.set_value("state", cur_frm.doc.status);
 	}
 });
 

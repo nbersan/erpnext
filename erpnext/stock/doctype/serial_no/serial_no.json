@@ -90,7 +90,9 @@
   "lft",
   "rgt",
   "is_group",
-  "old_parent"
+  "old_parent",
+  "sc_brk18",
+  "state"
  ],
  "fields": [
   {
@@ -678,12 +680,22 @@
    "fieldname": "ethadapt",
    "fieldtype": "Check",
    "label": "EAM12"
+  },
+  {
+   "fieldname": "sc_brk18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "To Refurbish\nOffline\nOnline\nUnder Testing\nReady\nShipped\nWIP Need Case\nEmpty\nTo Investigate\nTradeshow\nCommitted\nOn Site\nR&D\nWIP\nBroken\nTo Be Tested\nLost\nFree\nUsed"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-05-05 11:36:41.370000",
+ "modified": "2020-05-19 12:12:18.753185",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

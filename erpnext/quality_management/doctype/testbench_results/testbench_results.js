@@ -6,6 +6,7 @@ let tst_lg;
 let tst_st_day;
 let day_add;
 let tot_number;
+let last_row;
 
 frappe.ui.form.on('TestBench Results', {
 	camera_serial: function(frm) {
@@ -154,7 +155,7 @@ frappe.ui.form.on('TestBench Results', {
 				}
 			}
 
-			//If the test passed with warnings the adjust the test length.
+			//If the test passed with warnings then adjust the test length.
 			if(test_table[i].idx >= k && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed" && test_table[i].comments !== "None") {
 				counter++;
 			}
@@ -294,6 +295,29 @@ frappe.ui.form.on('TestBench Results', {
 				}
 			}
 		});
+		for (var j = 0; j < test_table.length; j++){
+			if (test_table[j].idx === test_table.length) {
+				frappe.call({
+					method: "frappe.client.get_count",
+					args: {
+						doctype: "Event",
+						filters: {'starts_on': frappe.datetime.add_days(test_table[j].date,1)},
+						fieldname: ["name","subject"]
+					},
+					callback: function(r){
+						console.log("event tomorrow" + r.message);
+						console.log(tst_lg);
+						last_row === r.message;
+						if (last_row === 1 && moment(frappe.datetime.add_days(test_table[j].date,1)).format("dddd") === "Friday") {
+							frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,4));
+						}
+						if (last_row === 1 && moment(frappe.datetime.add_days(test_table[j].date,1)).format("dddd") !== "Friday") {
+							frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,2));
+						}
+					}
+				});
+			}
+		}
 		if (moment(cur_frm.doc.end_dte).format("dddd") === "Saturday") {
 			frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,2));
 		}

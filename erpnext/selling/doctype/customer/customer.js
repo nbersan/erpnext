@@ -1,10 +1,10 @@
 // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
-let cam_ass;
+//let cam_ass;
 
 frappe.ui.form.on("Customer", {
-	refresh: function(frm,cdt,cdn) {
+	/*refresh: function(frm,cdt,cdn) {
 		var d = locals[cdt][cdn];
 		cam_ass = cur_frm.doc.cam_assigned;
 		var total_sdv = 0;
@@ -112,6 +112,7 @@ frappe.ui.form.on("Customer", {
 
 		for (var i = 0; i < cam_ass.length; i++) {
 			if(cam_ass[i].is_sent === 0 && cam_ass[i].is_back === 0) {
+				console.log("committed");
 				frappe.call({
 					method: "frappe.client.set_value",
 					args: {
@@ -130,7 +131,7 @@ frappe.ui.form.on("Customer", {
 	cam_need: function(frm) {
 		frm.save();
 	},
-
+*/
 	setup: function(frm) {
 
 		frm.make_methods = {

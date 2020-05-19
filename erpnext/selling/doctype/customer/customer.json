@@ -54,6 +54,8 @@
   "cam_nd",
   "sect_brk2",
   "cam_assigned",
+  "sc_brk3",
+  "cam_ass_back",
   "allowed_to_transact_section",
   "companies",
   "currency_and_price_list",
@@ -542,14 +544,15 @@
    "options": "Customer Credit Limit"
   },
   {
+   "collapsible": 1,
    "fieldname": "sect_brk1",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Cameras Needed"
   },
   {
    "allow_bulk_edit": 1,
    "fieldname": "cam_nd",
    "fieldtype": "Table",
-   "label": "Cameras Needed",
    "options": "Customer Cameras Needed"
   },
   {
@@ -672,13 +675,23 @@
   {
    "fieldname": "data_84",
    "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sc_brk3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cam_ass_back",
+   "fieldtype": "Table",
+   "label": "Cameras Back",
+   "options": "Customer Cameras Back"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-05-05 13:47:15.416176",
+ "modified": "2020-05-19 14:24:19.641375",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
