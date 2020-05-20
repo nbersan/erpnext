@@ -42,52 +42,52 @@ def get_data():
 				},
 			]
 		},
-		{
-			"label": _("Items and Pricing"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Item",
-					"onboard": 1,
-					"description": _("All Products or Services."),
-				},
-				{
-					"type": "doctype",
-					"name": "Item Price",
-					"description": _("Multiple Item prices."),
-					"onboard": 1,
-					"route": "#Report/Item Price"
-				},
-				{
-					"type": "doctype",
-					"name": "Price List",
-					"description": _("Price List master.")
-				},
-				{
-					"type": "doctype",
-					"name": "Product Bundle",
-					"description": _("Bundle items at time of sale."),
-				},
-				{
-					"type": "doctype",
-					"name": "Item Group",
-					"icon": "fa fa-sitemap",
-					"label": _("Item Group"),
-					"link": "Tree/Item Group",
-					"description": _("Tree of Item Groups."),
-				},
-				{
-					"type": "doctype",
-					"name": "Promotional Scheme",
-					"description": _("Rules for applying different promotional schemes.")
-				},
-				{
-					"type": "doctype",
-					"name": "Pricing Rule",
-					"description": _("Rules for applying pricing and discount.")
-				}
-			]
-		},
+#		{
+#			"label": _("Items and Pricing"),
+#			"items": [
+#				{
+#					"type": "doctype",
+#					"name": "Item",
+#					"onboard": 1,
+#					"description": _("All Products or Services."),
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Item Price",
+#					"description": _("Multiple Item prices."),
+#					"onboard": 1,
+#					"route": "#Report/Item Price"
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Price List",
+#					"description": _("Price List master.")
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Product Bundle",
+#					"description": _("Bundle items at time of sale."),
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Item Group",
+#					"icon": "fa fa-sitemap",
+#					"label": _("Item Group"),
+#					"link": "Tree/Item Group",
+#					"description": _("Tree of Item Groups."),
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Promotional Scheme",
+#					"description": _("Rules for applying different promotional schemes.")
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Pricing Rule",
+#					"description": _("Rules for applying pricing and discount.")
+#				}
+#			]
+#		},
 		{
 			"label": _("Settings"),
 			"icon": "fa fa-cog",
@@ -138,108 +138,108 @@ def get_data():
 
 			]
 		},
-		{
-			"label": _("Key Reports"),
-			"icon": "fa fa-table",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Purchase Analytics",
-					"reference_doctype": "Purchase Order",
-					"onboard": 1
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Supplier-Wise Sales Analytics",
-					"reference_doctype": "Stock Ledger Entry",
-					"onboard": 1
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Purchase Order Trends",
-					"reference_doctype": "Purchase Order",
-					"onboard": 1,
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Procurement Tracker",
-					"reference_doctype": "Purchase Order",
-					"onboard": 1,
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Requested Items To Be Ordered",
-					"reference_doctype": "Material Request",
-					"onboard": 1,
-				},
-			]
-		},
-		{
-			"label": _("Supplier Scorecard"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard",
-					"description": _("All Supplier scorecards."),
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard Variable",
-					"description": _("Templates of supplier scorecard variables.")
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard Criteria",
-					"description": _("Templates of supplier scorecard criteria."),
-				},
-				{
-					"type": "doctype",
-					"name": "Supplier Scorecard Standing",
-					"description": _("Templates of supplier standings."),
-				},
-
-			]
-		},
-		{
-			"label": _("Other Reports"),
-			"icon": "fa fa-list",
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Items To Be Requested",
-					"reference_doctype": "Item",
-					"onboard": 1,
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Item-wise Purchase History",
-					"reference_doctype": "Item",
-					"onboard": 1,
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Material Requests for which Supplier Quotations are not created",
-					"reference_doctype": "Material Request"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Address And Contacts",
-					"label": _("Supplier Addresses And Contacts"),
-					"reference_doctype": "Address",
-					"route_options": {
-						"party_type": "Supplier"
-					}
-				}
-			]
-		},
+#		{
+#			"label": _("Key Reports"),
+#			"icon": "fa fa-table",
+#			"items": [
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Purchase Analytics",
+#					"reference_doctype": "Purchase Order",
+#					"onboard": 1
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Supplier-Wise Sales Analytics",
+#					"reference_doctype": "Stock Ledger Entry",
+#					"onboard": 1
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Purchase Order Trends",
+#					"reference_doctype": "Purchase Order",
+#					"onboard": 1,
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Procurement Tracker",
+#					"reference_doctype": "Purchase Order",
+#					"onboard": 1,
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Requested Items To Be Ordered",
+#					"reference_doctype": "Material Request",
+#					"onboard": 1,
+#				},
+#			]
+#		},
+#		{
+#			"label": _("Supplier Scorecard"),
+#			"items": [
+#				{
+#					"type": "doctype",
+#					"name": "Supplier Scorecard",
+#					"description": _("All Supplier scorecards."),
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Supplier Scorecard Variable",
+#					"description": _("Templates of supplier scorecard variables.")
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Supplier Scorecard Criteria",
+#					"description": _("Templates of supplier scorecard criteria."),
+#				},
+#				{
+#					"type": "doctype",
+#					"name": "Supplier Scorecard Standing",
+#					"description": _("Templates of supplier standings."),
+#				},
+#
+#			]
+#		},
+#		{
+#			"label": _("Other Reports"),
+#			"icon": "fa fa-list",
+#			"items": [
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Items To Be Requested",
+#					"reference_doctype": "Item",
+#					"onboard": 1,
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Item-wise Purchase History",
+#					"reference_doctype": "Item",
+#					"onboard": 1,
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Material Requests for which Supplier Quotations are not created",
+#					"reference_doctype": "Material Request"
+#				},
+#				{
+#					"type": "report",
+#					"is_query_report": True,
+#					"name": "Address And Contacts",
+#					"label": _("Supplier Addresses And Contacts"),
+#					"reference_doctype": "Address",
+#					"route_options": {
+#						"party_type": "Supplier"
+#					}
+#				}
+#			]
+#		},
 
 	]
