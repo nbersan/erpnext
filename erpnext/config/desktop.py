@@ -107,7 +107,15 @@ def get_data():
 			"type": "module",
 			"description": "Quality goals, procedures, reviews and action."
 		},
-
+		{
+			"module_name": "Production Overview",
+			"category": "Modules",
+			"label": _("Production Overview"),
+			"color": "#1abc9c",
+			"icon": "octigon octigon-graph",
+			"type": "page",
+			"link": "cc_production"
+		},
 
 		# Category: "Domains"
 		{
