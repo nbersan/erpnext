@@ -89,29 +89,6 @@ def get_data():
 #			]
 #		},
 		{
-			"label": _("Settings"),
-			"icon": "fa fa-cog",
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Buying Settings",
-					"settings": 1,
-					"description": _("Default settings for buying transactions.")
-				},
-				{
-					"type": "doctype",
-					"name": "Purchase Taxes and Charges Template",
-					"description": _("Tax template for buying transactions.")
-				},
-				{
-					"type": "doctype",
-					"name":"Terms and Conditions",
-					"label": _("Terms and Conditions Template"),
-					"description": _("Template of terms or contract.")
-				},
-			]
-		},
-		{
 			"label": _("Supplier"),
 			"items": [
 				{
@@ -138,6 +115,30 @@ def get_data():
 
 			]
 		},
+                {
+                        "label": _("Settings"),
+                        "icon": "fa fa-cog",
+                        "items": [
+                                {
+                                        "type": "doctype",
+                                        "name": "Buying Settings",
+                                        "settings": 1,
+                                        "description": _("Default settings for buying transactions.")
+                                },
+                                {
+                                        "type": "doctype",
+                                        "name": "Purchase Taxes and Charges Template",
+                                        "description": _("Tax template for buying transactions.")
+                                },
+                                {
+                                        "type": "doctype",
+                                        "name":"Terms and Conditions",
+                                        "label": _("Terms and Conditions Template"),
+                                        "description": _("Template of terms or contract.")
+                                },
+                        ]
+                },
+                
 #		{
 #			"label": _("Key Reports"),
 #			"icon": "fa fa-table",
