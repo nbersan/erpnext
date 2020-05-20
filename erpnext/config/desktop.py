@@ -112,7 +112,7 @@ def get_data():
 			"category": "Modules",
 			"label": _("Production Overview"),
 			"color": "#1abc9c",
-			"icon": "octigon octigon-graph",
+			"icon": "octicon octicon-graph",
 			"type": "page",
 			"link": "desk#cc_production"
 		},
