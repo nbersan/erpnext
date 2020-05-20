@@ -114,7 +114,7 @@ def get_data():
 			"color": "#1abc9c",
 			"icon": "octigon octigon-graph",
 			"type": "page",
-			"link": "cc_production"
+			"link": "desk#cc_production"
 		},
 
 		# Category: "Domains"
