@@ -21,6 +21,7 @@
   "posting_date",
   "posting_time",
   "set_posting_time",
+  "pur_ord_no",
   "amended_from",
   "accounting_dimensions_section",
   "cost_center",
@@ -169,16 +170,14 @@
    "print_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Series",
-   "no_copy": 1,
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
    "options": "ACC-PINV-.YYYY.-",
-   "print_hide": 1,
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "supplier",
@@ -418,7 +417,6 @@
    "fieldname": "contact_email",
    "fieldtype": "Small Text",
    "label": "Contact Email",
-   "options": "Email",
    "print_hide": 1,
    "read_only": 1
   },
@@ -707,7 +705,7 @@
   },
   {
    "fieldname": "other_charges_calculation",
-   "fieldtype": "Long Text",
+   "fieldtype": "Text",
    "label": "Taxes and Charges Calculation",
    "no_copy": 1,
    "oldfieldtype": "HTML",
@@ -1284,13 +1282,19 @@
   {
    "fieldname": "dimension_col_break",
    "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "pur_ord_no",
+   "fieldtype": "Data",
+   "label": "Purchase Order No"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 204,
  "is_submittable": 1,
  "links": [],
- "modified": "2019-12-30 19:13:49.610538",
+ "modified": "2020-05-20 11:23:39.489025",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Purchase Invoice",
