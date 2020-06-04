@@ -33,6 +33,7 @@ frappe.ui.form.on('TestBench Results', {
 		});
 	},
 	onload: function(frm,cdt,cdn) {
+		if(cur_frm.doc.test_status ==! "Passed") {
 		//Filter the proposed values in the camera_serial field.
 		frm.set_query("camera_serial", function() {
 			return {
@@ -243,6 +244,7 @@ frappe.ui.form.on('TestBench Results', {
 			frm.set_value("test_status","Passed");
 		}
 		console.log(cur_frm.doc.per_comp);
+		}
 	},
 	//If the testbench status changes, save the document.
 	test_status: function(frm) {

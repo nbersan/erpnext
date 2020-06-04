@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "autoname": "field:camera_serial",
+ "creation": "2020-06-04 12:16:02.441550",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "camera_serial",
+  "version",
+  "col_brk1",
+  "status",
+  "sc_brk1",
+  "bbind",
+  "bbb_sd_card",
+  "c12v",
+  "col_brk2",
+  "pwrpcb14",
+  "iotcbb",
+  "sod",
+  "sc_brk2",
+  "sodib",
+  "cusbmnbamm",
+  "cusbmcbamm",
+  "col_brk3",
+  "cusbmmf",
+  "ceth500sflx",
+  "sc_brk3",
+  "bsm3x8f",
+  "wshm3pa",
+  "bsm3x12",
+  "scm3x5",
+  "col_brk4",
+  "scm3x10",
+  "num3s",
+  "ct32x150"
+ ],
+ "fields": [
+  {
+   "fieldname": "camera_serial",
+   "fieldtype": "Link",
+   "label": "Camera Serial",
+   "options": "Serial No",
+   "unique": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Empty\nWIP Tag Components Missing\nWIP No Tag Components Missing\nWIP Screws Missing\nWIP Tag Components + No Tag Components Missing\nWIP Tag Components + Screws Missing\nWIP No Tag Components + Screws Missing\nWIP Tag Components + No Tag Components + Screws Missing\nReady For Assembling"
+  },
+  {
+   "fieldname": "sc_brk1",
+   "fieldtype": "Section Break",
+   "label": "Tagged Components"
+  },
+  {
+   "fieldname": "col_brk1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Select",
+   "label": "Version",
+   "options": "SDV\nWCV\nKCV"
+  },
+  {
+   "default": "1",
+   "fieldname": "bbind",
+   "fieldtype": "Check",
+   "label": "BBInd"
+  },
+  {
+   "default": "1",
+   "fieldname": "c12v",
+   "fieldtype": "Check",
+   "label": "C12V"
+  },
+  {
+   "default": "1",
+   "fieldname": "pwrpcb14",
+   "fieldtype": "Check",
+   "label": "PwrPCB1.4"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.version ==! \"KCV\";",
+   "fieldname": "iotcbb",
+   "fieldtype": "Check",
+   "label": "IoTCBB"
+  },
+  {
+   "default": "1",
+   "fieldname": "sod",
+   "fieldtype": "Check",
+   "label": "SOD"
+  },
+  {
+   "fieldname": "sc_brk2",
+   "fieldtype": "Section Break",
+   "label": "Untagged Components"
+  },
+  {
+   "default": "1",
+   "fieldname": "bbb_sd_card",
+   "fieldtype": "Check",
+   "label": "BBB SD Card"
+  },
+  {
+   "fieldname": "col_brk2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "sodib",
+   "fieldtype": "Check",
+   "label": "SODIB"
+  },
+  {
+   "fieldname": "col_brk3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "cusbmnbamm",
+   "fieldtype": "Check",
+   "label": "CUSBMnBAMM"
+  },
+  {
+   "default": "1",
+   "fieldname": "cusbmcbamm",
+   "fieldtype": "Check",
+   "label": "CUSBMcBAMM"
+  },
+  {
+   "default": "1",
+   "fieldname": "cusbmmf",
+   "fieldtype": "Check",
+   "label": "CUSBMMF"
+  },
+  {
+   "default": "1",
+   "fieldname": "ceth500sflx",
+   "fieldtype": "Check",
+   "label": "CEth500SFlx"
+  },
+  {
+   "fieldname": "sc_brk3",
+   "fieldtype": "Section Break",
+   "label": "Screws"
+  },
+  {
+   "default": "1",
+   "fieldname": "bsm3x8f",
+   "fieldtype": "Check",
+   "label": "BSM3X8F"
+  },
+  {
+   "default": "1",
+   "fieldname": "wshm3pa",
+   "fieldtype": "Check",
+   "label": "WshM3PA"
+  },
+  {
+   "default": "1",
+   "fieldname": "bsm3x12",
+   "fieldtype": "Check",
+   "label": "BSM3X12"
+  },
+  {
+   "default": "1",
+   "fieldname": "scm3x5",
+   "fieldtype": "Check",
+   "label": "ScM3X5"
+  },
+  {
+   "default": "1",
+   "fieldname": "scm3x10",
+   "fieldtype": "Check",
+   "label": "ScM3X10"
+  },
+  {
+   "default": "1",
+   "fieldname": "num3s",
+   "fieldtype": "Check",
+   "label": "NuM3S"
+  },
+  {
+   "default": "1",
+   "fieldname": "ct32x150",
+   "fieldtype": "Check",
+   "label": "CT3.2X150"
+  },
+  {
+   "fieldname": "col_brk4",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "links": [],
+ "modified": "2020-06-04 14:55:12.558584",
+ "modified_by": "Administrator",
+ "module": "Manufacturing",
+ "name": "Electronic Assembly Building",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
