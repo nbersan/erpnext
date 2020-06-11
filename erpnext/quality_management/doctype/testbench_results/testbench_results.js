@@ -69,9 +69,10 @@ frappe.ui.form.on('TestBench Results', {
 		}
 		if(cur_frm.doc.testbench_results_detail.length !== 0) {
 			tst_st = cur_frm.doc.testbench_results_detail[0].date;
-			//frm.set_value("st_dte", tst_st);
+			frm.set_value("st_dte", tst_st);
 		}
 		if(test_table.length !== 0 && test_table[0].date !== undefined) {
+			tst_st = cur_frm.doc.testbench_results_detail[0].date;
 			frm.set_value("st_dte",tst_st);
 
 			//When the first row is recorded, set the testbench status to "In Progress".
@@ -275,6 +276,7 @@ frappe.ui.form.on('TestBench Results', {
 		}
 	},
 	refresh: function(frm) {
+		test_table = cur_frm.doc.testbench_results_detail;
 		let day_event;
 		frappe.call({
 			method: "frappe.client.get_count",

@@ -532,13 +532,13 @@
    "depends_on": "eval:doc.item_group == \"Full Systems\"",
    "fieldname": "on_site",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "On Site"
   },
   {
    "fieldname": "product_type",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Product Type",
    "options": "Product Type",
@@ -696,7 +696,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-06-02 12:46:18.589823",
+ "modified": "2020-06-09 10:25:42.043272",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

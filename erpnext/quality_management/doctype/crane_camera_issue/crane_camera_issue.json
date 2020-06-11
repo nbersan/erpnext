@@ -20,7 +20,7 @@
    "fieldname": "fail_test",
    "fieldtype": "Select",
    "label": "Failing Test",
-   "options": "Camera\nSystem\nModem"
+   "options": "Camera\nSystem\nModem\nTestbench"
   },
   {
    "fieldname": "log_name",
@@ -59,7 +59,7 @@
   }
  ],
  "links": [],
- "modified": "2020-04-02 08:27:19.624830",
+ "modified": "2020-06-09 10:00:58.705388",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "Crane Camera Issue",
