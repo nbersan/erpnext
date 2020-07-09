@@ -46,6 +46,8 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Empty\nWIP Tag Components Missing\nWIP No Tag Components Missing\nWIP Screws Missing\nWIP Tag Components + No Tag Components Missing\nWIP Tag Components + Screws Missing\nWIP No Tag Components + Screws Missing\nWIP Tag Components + No Tag Components + Screws Missing\nReady For Assembling"
   },
@@ -84,7 +86,6 @@
   },
   {
    "default": "1",
-   "depends_on": "eval:doc.version ==! \"KCV\";",
    "fieldname": "iotcbb",
    "fieldtype": "Check",
    "label": "IoTCBB"
@@ -197,7 +198,7 @@
   }
  ],
  "links": [],
- "modified": "2020-06-04 14:55:12.558584",
+ "modified": "2020-07-07 12:34:29.596472",
  "modified_by": "Administrator",
  "module": "Manufacturing",
  "name": "Electronic Assembly Building",

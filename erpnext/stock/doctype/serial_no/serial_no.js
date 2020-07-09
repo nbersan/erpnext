@@ -21,6 +21,9 @@ let tst_port;
 
 frappe.ui.form.on('Serial No', {
 	refresh: function(frm) {
+		if(cur_frm.doc.state !== cur_frm.doc.status) {
+			frm.set_value("state", cur_frm.doc.status);
+		}
 		if(cur_frm.doc.item_code === "SDCID") {
 			let sd_no = cur_frm.doc.name.substr(cur_frm.doc.name.length-3);
 			frm.set_value("sd_no",sd_no);
@@ -86,6 +89,58 @@ frappe.ui.form.on('Serial No', {
 							}
 						}
 					});
+					if(table[i].item_code === "CCVidtc") {
+						frappe.call({
+							method: "frappe.client.get_value",
+							args: {
+								doctype: "Serial No",
+								fieldname: [
+									"s3m",
+									"pv",
+									"sma",
+									"ethadapt"
+								],
+								filters: {name: table[i].serial_no}
+							},
+							callback: function(r) {
+								//console.log(r.message);
+								var s3m = r.message.s3m;
+								var pv = r.message.pv;
+								var sma = r.message.sma;
+								var ethadapt = r.message.ethadapt;
+								//frm.set_value("3m",s3m);
+								//frm.set_value("pv",pv);
+								//frm.set_value("sma",sma);
+								//frm.set_value("ethadapt",ethadapt);
+							}
+						});
+					}
+					if(table[i].item_code === "CCV1SDV") {
+						frappe.call({
+							method: "frappe.client.get_value",
+							args: {
+								doctype: "Serial No",
+								fieldname: [
+									"soda_sd_no",
+									"bb_sd_no",
+									"ceth500",
+									"sdc"
+								],
+								filters: {name: table[i].serial_no}
+							},
+							callback: function(r) {
+								console.log(r.message);
+								var soda_sd_no = r.message.soda_sd_no;
+								var bb_sd_no = r.message.bb_sd_no;
+								var ceth500 = r.message.ceth500;
+								var sdc = r.message.sdc;
+								frm.set_value("soda_sd_no",soda_sd_no);
+								frm.set_value("bb_sd_no",bb_sd_no);
+								frm.set_value("ceth500",ceth500);
+								frm.set_value("sdc",sdc);
+							}
+						});
+					}
 				}
 			}
 		}

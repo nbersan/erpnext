@@ -14,6 +14,7 @@
   "st_dte",
   "end_dte",
   "test_status",
+  "test_comments",
   "sect_break1",
   "testbench_results_detail",
   "sect_break2",
@@ -57,6 +58,7 @@
    "fieldname": "end_dte",
    "fieldtype": "Date",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "End Date"
   },
   {
@@ -70,6 +72,7 @@
    "options": "Testbench Results Detail"
   },
   {
+   "default": "Not Started",
    "fieldname": "test_status",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -108,10 +111,17 @@
    "fieldtype": "Select",
    "label": "Camera Connection",
    "options": "Online\nOffline"
+  },
+  {
+   "default": "0",
+   "fieldname": "test_comments",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Comments"
   }
  ],
  "links": [],
- "modified": "2020-04-28 08:46:20.624640",
+ "modified": "2020-06-30 12:00:33.098483",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",

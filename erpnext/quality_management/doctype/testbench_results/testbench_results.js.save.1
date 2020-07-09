@@ -103,7 +103,7 @@ frappe.ui.form.on('TestBench Results', {
 		for (var i = 0; i < test_table.length; i++){
 			var previous
 			//If all the tests are passed, increase by one "tot_number".
-			if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" /*&& (test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A")*/) {
+			if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && (test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A")) {
 				if(test_table[i].idx !== 1){
 					test_table[i].number_passed = test_table[i-1].number_passed +1;
 					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
@@ -158,14 +158,8 @@ frappe.ui.form.on('TestBench Results', {
 			}
 
 			//If the test passed with warnings then adjust the test length.
-			if(test_table[i].idx >= k && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && /*(test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A") &&*/ test_table[i].comments !== "None") {
+			if(test_table[i].idx >= k && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed" && test_table[i].comments !== "None") {
 				counter++;
-				console.log("Comments");
-				frm.set_value("test_comments",1);
-			}
-			if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].comments !== "None") {
-				console.log("Comments");
-				frm.set_value("test_comments",1);
 			}
 		}
 		//If one record has a comment, set the testbench length to 6 days.
@@ -179,6 +173,8 @@ frappe.ui.form.on('TestBench Results', {
 		console.log(tst_lg);
 		var last_row = test_table.length
 		console.log(last_row);
+		//Check if the end date is correct
+		if(
 		//If the tests failed three times, set the testbench status to "Failed".
 		if(fail >= 3 && cur_frm.doc.tot_number === 0) {
 			frm.set_value("test_status","Failed");
