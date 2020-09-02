@@ -15,6 +15,7 @@
   "end_dte",
   "test_status",
   "test_comments",
+  "blck_end_dte",
   "sect_break1",
   "testbench_results_detail",
   "sect_break2",
@@ -118,10 +119,16 @@
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Comments"
+  },
+  {
+   "default": "0",
+   "fieldname": "blck_end_dte",
+   "fieldtype": "Check",
+   "label": "Blocked End Date"
   }
  ],
  "links": [],
- "modified": "2020-06-30 12:00:33.098483",
+ "modified": "2020-09-02 09:07:56.677410",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",

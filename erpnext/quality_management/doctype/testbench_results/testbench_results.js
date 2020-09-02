@@ -33,227 +33,227 @@ frappe.ui.form.on('TestBench Results', {
 		});
 	},
 	onload: function(frm,cdt,cdn) {
-		if(cur_frm.doc.test_status !== "Passed") {
+		if(cur_frm.doc.test_status !== "Passed" || cur_frm.doc.blck_end_dte !== 1) {
 		//Filter the proposed values in the camera_serial field.
-		frm.set_query("camera_serial", function() {
-			return {
-				filters:[
-					["Serial No","product_type","in","V1 Camera"],
-					["Serial No","status","in","To Be Tested"]
-				]
-			};
-		});
-		var d = locals[cdt][cdn];
-		test_table = cur_frm.doc.testbench_results_detail;
-		tst_lg = 0;
-		var id_fail = 0;
-		var fail = 0;
-		var k = (test_table.length -5);
-		var counter = 0;
-		tot_number = 0;
-		tst_st_day = moment(cur_frm.doc.st_dte).format("dddd");
-		console.log(tst_st_day + " cest le bon");
-		//console.log(cur_frm.doc.st_dte + " was " + tst_st_day);
-		//console.log(typeof(cur_frm.doc.st_dte));
-		frm.set_value("tot_number",0);
-		//frm.set_value("st_dte",tst_st);
+			frm.set_query("camera_serial", function() {
+				return {
+					filters:[
+						["Serial No","product_type","in","V1 Camera"],
+						["Serial No","status","in","To Be Tested"]
+					]
+				};
+			});
+			var d = locals[cdt][cdn];
+			test_table = cur_frm.doc.testbench_results_detail;
+			tst_lg = 0;
+			var id_fail = 0;
+			var fail = 0;
+			var k = (test_table.length -5);
+			var counter = 0;
+			tot_number = 0;
+			tst_st_day = moment(cur_frm.doc.st_dte).format("dddd");
+			console.log(tst_st_day + " cest le bon");
+			//console.log(cur_frm.doc.st_dte + " was " + tst_st_day);
+			//console.log(typeof(cur_frm.doc.st_dte));
+			frm.set_value("tot_number",0);
+			//frm.set_value("st_dte",tst_st);
 
-		//If no records in the testbench table, set the testbench status as "Not Started".
-		if(cur_frm.doc.testbench_results_detail.length === 0) {
-			if(cur_frm.doc.cam_con === "Offline") {
-				frm.set_value("test_status", "Camera Offline");
-			}
-			else {
-				frm.set_value("test_status","Not Started");
-			}
-		}
-		if(cur_frm.doc.testbench_results_detail.length !== 0) {
-			tst_st = cur_frm.doc.testbench_results_detail[0].date;
-			frm.set_value("st_dte", tst_st);
-		}
-		if(test_table.length !== 0 && test_table[0].date !== undefined) {
-			tst_st = cur_frm.doc.testbench_results_detail[0].date;
-			frm.set_value("st_dte",tst_st);
-
-			//When the first row is recorded, set the testbench status to "In Progress".
-			frm.set_value("test_status","In Progress");
-
-			//If the first row doesn't have comments.
-			if(test_table[0].comments === "None") {
-
-				//If the testbench start date is a Monday, set the testbench end date to "testbench start date +4 days".
-				if(tst_st_day === "Monday") {
-					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 4));
-					console.log("Was monday");
-				}
-
-				//If the testbench start date is not a Monday, set the testbench end date to "testbench start date +6 days".
-				else {
-					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 6));
-					console.log("Was Monday, Has Comments");
-				}
-			}
-			//If the first row has a comment.
-			if(test_table[0].comments !== "None") {
-
-				//Set the testbench end date to "testbench start date +7 days".
-				frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 7));
-			}
-		}
-		for (var i = 0; i < test_table.length; i++){
-			var previous
-			//If all the tests are passed, increase by one "tot_number".
-			if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" /*&& (test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A")*/) {
-				if(test_table[i].idx !== 1){
-					test_table[i].number_passed = test_table[i-1].number_passed +1;
-					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
-					frm.set_value("tot_number", test_table[i].number_passed);
+			//If no records in the testbench table, set the testbench status as "Not Started".
+			if(cur_frm.doc.testbench_results_detail.length === 0) {
+				if(cur_frm.doc.cam_con === "Offline") {
+					frm.set_value("test_status", "Camera Offline");
 				}
 				else {
-					test_table[i].number_passed = 1;
-					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
-					frm.set_value("tot_number", test_table[i].number_passed);
+					frm.set_value("test_status","Not Started");
 				}
-				//test_table[i].number_passed = test_table[i-1].number_passed +1;
-				//console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
-				//tot_number++;
-				//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
 			}
-			//If one of the tests failed, set "tot_number" to 0, set "id_fail" to "row id + 1" and increase by 1 "fail".
-			if(test_table[i].cam_tst === "Failed" || test_table[i].sys_tst === "Failed" || test_table[i].mdm_tst === "Failed") {
-				test_table[i].number_passed = 0;
-				console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
-				//tot_number = 0;
-				//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
-				id_fail = test_table[i].idx + 1;
-				fail++;
-				frm.set_value("tot_number", test_table[i].number_passed);
+			if(cur_frm.doc.testbench_results_detail.length !== 0) {
+				tst_st = cur_frm.doc.testbench_results_detail[0].date;
+				frm.set_value("st_dte", tst_st);
+			}
+			if(test_table.length !== 0 && test_table[0].date !== undefined) {
+				tst_st = cur_frm.doc.testbench_results_detail[0].date;
+				frm.set_value("st_dte",tst_st);
 
-				//If one of the tests failed, set the testbench end date to "next row date + 6".
-				if(id_fail < test_table.length) {
-					if(frappe.datetime.add_days(test_table[id_fail].date,6) > cur_frm.doc.end_dte) {
-						frm.set_value("end_dte",frappe.datetime.add_days(test_table[id_fail].date,6));
+				//When the first row is recorded, set the testbench status to "In Progress".
+				frm.set_value("test_status","In Progress");
+
+				//If the first row doesn't have comments.
+				if(test_table[0].comments === "None") {
+
+					//If the testbench start date is a Monday, set the testbench end date to "testbench start date +4 days".
+					if(tst_st_day === "Monday") {
+						frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 4));
+						console.log("Was monday");
+					}
+
+					//If the testbench start date is not a Monday, set the testbench end date to "testbench start date +6 days".
+					else {
+						frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 6));
+						console.log("Was Monday, Has Comments");
 					}
 				}
-			}
+				//If the first row has a comment.
+				if(test_table[0].comments !== "None") {
 
-			/*
-			If the penultimate row date is Friday and this date +3 days (week-end) doesn't correspond to the Testbench end date
-			if True, set the Testbench end date to the row date +3 days.
-			*/
-			if(test_table[i].idx === test_table.length-1 && cur_frm.doc.tot_number >= 4 && moment(test_table[i].date).format("dddd") === "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
-				if(frappe.datetime.add_days(test_table[i].date, 3) !== cur_frm.doc.end_dte) {
-					frm.set_value("end_dte",frappe.datetime.add_days(test_table[i].date, 3));
+					//Set the testbench end date to "testbench start date +7 days".
+					frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.st_dte, 7));
 				}
 			}
+			for (var i = 0; i < test_table.length; i++){
+				var previous
+				//If all the tests are passed, increase by one "tot_number".
+				if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" /*&& (test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A")*/) {
+					if(test_table[i].idx !== 1){
+						test_table[i].number_passed = test_table[i-1].number_passed +1;
+						console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+						frm.set_value("tot_number", test_table[i].number_passed);
+					}
+					else {
+						test_table[i].number_passed = 1;
+						console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+						frm.set_value("tot_number", test_table[i].number_passed);
+					}
+					//test_table[i].number_passed = test_table[i-1].number_passed +1;
+					//console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+					//tot_number++;
+					//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
+				}
+				//If one of the tests failed, set "tot_number" to 0, set "id_fail" to "row id + 1" and increase by 1 "fail".
+				if(test_table[i].cam_tst === "Failed" || test_table[i].sys_tst === "Failed" || test_table[i].mdm_tst === "Failed") {
+					test_table[i].number_passed = 0;
+					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
+					//tot_number = 0;
+					//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
+					id_fail = test_table[i].idx + 1;
+					fail++;
+					frm.set_value("tot_number", test_table[i].number_passed);
 
-			/*
-			If the penultimate row date is not Friday and this date +1 day doesn't correspond to the Testbench end date
-			if True, set the Testbench end date to the row date +1 day.
-			*/
-			if(test_table[i].idx === test_table.length-1 && cur_frm.doc.tot_number >= 4 && moment(test_table[i].date).format("dddd") !== "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
-				if(frappe.datetime.add_days(test_table[i].date, 1) !== cur_frm.doc.end_dte) {
-					frm.set_value("end_dte",frappe.datetime.add_days(test_table[i].date, 1));
+					//If one of the tests failed, set the testbench end date to "next row date + 6".
+					if(id_fail < test_table.length) {
+						if(frappe.datetime.add_days(test_table[id_fail].date,6) > cur_frm.doc.end_dte) {
+							frm.set_value("end_dte",frappe.datetime.add_days(test_table[id_fail].date,6));
+						}
+					}
+				}
+
+				/*
+				If the penultimate row date is Friday and this date +3 days (week-end) doesn't correspond to the Testbench end date
+				if True, set the Testbench end date to the row date +3 days.
+				*/
+				if(test_table[i].idx === test_table.length-1 && cur_frm.doc.tot_number >= 4 && moment(test_table[i].date).format("dddd") === "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
+					if(frappe.datetime.add_days(test_table[i].date, 3) !== cur_frm.doc.end_dte) {
+						frm.set_value("end_dte",frappe.datetime.add_days(test_table[i].date, 3));
+					}
+				}
+
+				/*
+				If the penultimate row date is not Friday and this date +1 day doesn't correspond to the Testbench end date
+				if True, set the Testbench end date to the row date +1 day.
+				*/
+				if(test_table[i].idx === test_table.length-1 && cur_frm.doc.tot_number >= 4 && moment(test_table[i].date).format("dddd") !== "Friday" && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].mdm_tst === "Passed") {
+					if(frappe.datetime.add_days(test_table[i].date, 1) !== cur_frm.doc.end_dte) {
+						frm.set_value("end_dte",frappe.datetime.add_days(test_table[i].date, 1));
+					}
+				}
+
+				//If the test passed with warnings then adjust the test length.
+				if(test_table[i].idx >= k && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && /*(test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A") &&*/ test_table[i].comments !== "None") {
+					counter++;
+					console.log("Comments");
+					frm.set_value("test_comments",1);
+				}
+				if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].comments !== "None") {
+					console.log("Comments");
+					frm.set_value("test_comments",1);
 				}
 			}
+			//If one record has a comment, set the testbench length to 6 days.
+			if(counter >= 1) {
+				tst_lg = 6;
+			}
+			//If no record has a comment, set the testbench length to 5 days.
+			else {
+				tst_lg = 5;
+			}
+			console.log(tst_lg);
+			var last_row = test_table.length
+			console.log(last_row);
+			//If the tests failed three times, set the testbench status to "Failed".
+			if(fail >= 3 && cur_frm.doc.tot_number === 0) {
+				frm.set_value("test_status","Failed");
+			}
+			//If the test failed three times and then passed, set the testbench status to "In Progress".
+			if(fail >= 3 && cur_frm.doc.tot_number !== 0) {
+				frm.set_value("test_status","In Progress");
+			}
+			//Set % Completed to 0 if the tot_number field value is 0.
+			if(cur_frm.doc.tot_number === 0) {
+				frm.set_value("per_comp",0);
+			}
+			if(tst_lg === 5) {
 
-			//If the test passed with warnings then adjust the test length.
-			if(test_table[i].idx >= k && test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && /*(test_table[i].mdm_tst === "Passed" || test_table[i].mdm_tst === "N/A") &&*/ test_table[i].comments !== "None") {
-				counter++;
-				console.log("Comments");
-				frm.set_value("test_comments",1);
-			}
-			if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].comments !== "None") {
-				console.log("Comments");
-				frm.set_value("test_comments",1);
-			}
-		}
-		//If one record has a comment, set the testbench length to 6 days.
-		if(counter >= 1) {
-			tst_lg = 6;
-		}
-		//If no record has a comment, set the testbench length to 5 days.
-		else {
-			tst_lg = 5;
-		}
-		console.log(tst_lg);
-		var last_row = test_table.length
-		console.log(last_row);
-		//If the tests failed three times, set the testbench status to "Failed".
-		if(fail >= 3 && cur_frm.doc.tot_number === 0) {
-			frm.set_value("test_status","Failed");
-		}
-		//If the test failed three times and then passed, set the testbench status to "In Progress".
-		if(fail >= 3 && cur_frm.doc.tot_number !== 0) {
-			frm.set_value("test_status","In Progress");
-		}
-		//Set % Completed to 0 if the tot_number field value is 0.
-		if(cur_frm.doc.tot_number === 0) {
-			frm.set_value("per_comp",0);
-		}
-		if(tst_lg === 5) {
+				//Set % Completed to 20 if the tot_number field value is 1.
+				if(cur_frm.doc.tot_number === 1) {
+					frm.set_value("per_comp",20);
+				}
 
-			//Set % Completed to 20 if the tot_number field value is 1.
-			if(cur_frm.doc.tot_number === 1) {
-				frm.set_value("per_comp",20);
-			}
+				//Set % Completed to 40 if the tot_number field value is 2.
+				if(cur_frm.doc.tot_number === 2) {
+					frm.set_value("per_comp",40);
+				}
 
-			//Set % Completed to 40 if the tot_number field value is 2.
-			if(cur_frm.doc.tot_number === 2) {
-				frm.set_value("per_comp",40);
-			}
+				//Set % Completed to 60 if the tot_number field value is 3.
+				if(cur_frm.doc.tot_number === 3) {
+					frm.set_value("per_comp",60);
+				}
 
-			//Set % Completed to 60 if the tot_number field value is 3.
-			if(cur_frm.doc.tot_number === 3) {
-				frm.set_value("per_comp",60);
-			}
+				//Set % Completed to 80 if the tot_number field value is 4.
+				if(cur_frm.doc.tot_number === 4) {
+					frm.set_value("per_comp",80);
+				}
 
-			//Set % Completed to 80 if the tot_number field value is 4.
-			if(cur_frm.doc.tot_number === 4) {
-				frm.set_value("per_comp",80);
+				//Set % Completed to 100 if the tot_number field value is 5.
+				if(cur_frm.doc.tot_number >= 5) {
+					frm.set_value("per_comp",100);
+				}
 			}
+			if(tst_lg === 6) {
+				//Set % Completed to 20 if the tot_number field value is 1.
+				if(cur_frm.doc.tot_number === 1) {
+					frm.set_value("per_comp",20);
+				}
 
-			//Set % Completed to 100 if the tot_number field value is 5.
-			if(cur_frm.doc.tot_number >= 5) {
-				frm.set_value("per_comp",100);
-			}
-		}
-		if(tst_lg === 6) {
-			//Set % Completed to 20 if the tot_number field value is 1.
-			if(cur_frm.doc.tot_number === 1) {
-				frm.set_value("per_comp",20);
-			}
+				//Set % Completed to 40 if the tot_number field value is 2.
+				if(cur_frm.doc.tot_number === 2) {
+					frm.set_value("per_comp",40);
+				}
 
-			//Set % Completed to 40 if the tot_number field value is 2.
-			if(cur_frm.doc.tot_number === 2) {
-				frm.set_value("per_comp",40);
-			}
+				//Set % Completed to 60 if the tot_number field value is 3.
+				if(cur_frm.doc.tot_number === 3) {
+					frm.set_value("per_comp",60);
+				}
 
-			//Set % Completed to 60 if the tot_number field value is 3.
-			if(cur_frm.doc.tot_number === 3) {
-				frm.set_value("per_comp",60);
-			}
+				//Set % Completed to 80 if the tot_number field value is 4.
+				if(cur_frm.doc.tot_number === 4) {
+					frm.set_value("per_comp",80);
+				}
 
-			//Set % Completed to 80 if the tot_number field value is 4.
-			if(cur_frm.doc.tot_number === 4) {
-				frm.set_value("per_comp",80);
-			}
+				//Set % Completed to 90 if the tot_number field value is 5.
+				if(cur_frm.doc.tot_number === 5) {
+					frm.set_value("per_comp",90);
+				}
 
-			//Set % Completed to 90 if the tot_number field value is 5.
-			if(cur_frm.doc.tot_number === 5) {
-				frm.set_value("per_comp",90);
+				//Set % Completed to 100 if the tot_number field value is 6.
+				if(cur_frm.doc.tot_number >= 6) {
+					frm.set_value("per_comp",100);
+				}
 			}
-
-			//Set % Completed to 100 if the tot_number field value is 6.
-			if(cur_frm.doc.tot_number >= 6) {
-				frm.set_value("per_comp",100);
+			//If "tot_number" is equal to the testbench length, set the testbench status to "Passed".
+			if(cur_frm.doc.tot_number >= tst_lg) {
+				frm.set_value("test_status","Passed");
 			}
-		}
-		//If "tot_number" is equal to the testbench length, set the testbench status to "Passed".
-		if(cur_frm.doc.tot_number >= tst_lg) {
-			frm.set_value("test_status","Passed");
-		}
-		console.log(cur_frm.doc.per_comp);
+			console.log(cur_frm.doc.per_comp);
 		}
 	},
 	//If the testbench status changes, save the document.
@@ -312,8 +312,12 @@ frappe.ui.form.on('TestBench Results', {
 			if (test_table[j].idx === test_table.length) {
 				var day_after = moment(frappe.datetime.add_days(test_table[j].date,1)).format("dddd");
 				console.log("Day After "+day_after);
+				var day_after_dte = moment(frappe.datetime.add_days(test_table[j].date,1)).format("YYYY-MM-DD");
 				var days_left = tst_lg - test_table[j].number_passed;
 				console.log(days_left);
+				if (moment().isAfter(day_after_dte) === "true"){
+					console.log("is after");
+				}
 				frappe.call({
 					method: "frappe.client.get_count",
 					args: {

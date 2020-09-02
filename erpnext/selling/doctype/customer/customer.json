@@ -23,6 +23,8 @@
   "col_brk4",
   "cam_need",
   "col_brk5",
+  "cam_assi",
+  "col_brek",
   "cam_left",
   "col_brk6",
   "cam_back",
@@ -556,8 +558,10 @@
    "options": "Customer Cameras Needed"
   },
   {
+   "collapsible": 1,
    "fieldname": "sect_brk2",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Cameras Assigned"
   },
   {
    "allow_bulk_edit": 1,
@@ -658,7 +662,7 @@
   {
    "fieldname": "cam_back",
    "fieldtype": "Data",
-   "label": "Cameras To Be Returned"
+   "label": "Cameras To Be Ret."
   },
   {
    "fieldname": "col_brk4",
@@ -677,21 +681,32 @@
    "fieldtype": "Data"
   },
   {
+   "collapsible": 1,
    "fieldname": "sc_brk3",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Cameras Back"
   },
   {
    "fieldname": "cam_ass_back",
    "fieldtype": "Table",
    "label": "Cameras Back",
    "options": "Customer Cameras Back"
+  },
+  {
+   "fieldname": "col_brek",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cam_assi",
+   "fieldtype": "Data",
+   "label": "Cameras Assigned"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-05-19 14:24:19.641375",
+ "modified": "2020-08-28 09:49:14.993125",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
