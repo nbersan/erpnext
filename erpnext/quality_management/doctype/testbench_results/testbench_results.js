@@ -33,7 +33,7 @@ frappe.ui.form.on('TestBench Results', {
 		});
 	},
 	onload: function(frm,cdt,cdn) {
-		if(cur_frm.doc.test_status !== "Passed") {
+		if(cur_frm.doc.test_status !== "Passed" && cur_frm.doc.test_status !== "On Hold") {
 			//Filter the proposed values in the camera_serial field.
 			frm.set_query("camera_serial", function() {
 				return {
