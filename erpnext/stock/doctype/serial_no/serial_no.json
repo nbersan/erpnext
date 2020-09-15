@@ -574,7 +574,7 @@
    "label": "BBInd SD Card Number"
   },
   {
-   "depends_on": "eval: doc.item_group == \"Full Systems\";",
+   "depends_on": "eval: doc.item_group == \"Full Systems\" || doc.item_code == \"SOD\";",
    "fieldname": "soda_sd_no",
    "fieldtype": "Data",
    "label": "Soda SD Card Number"
@@ -698,7 +698,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-07-09 14:49:24.424871",
+ "modified": "2020-09-14 13:55:42.310621",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

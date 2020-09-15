@@ -687,6 +687,7 @@
    "label": "Cameras Back"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "cam_ass_back",
    "fieldtype": "Table",
    "label": "Cameras Back",
@@ -706,7 +707,7 @@
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-08-28 09:49:14.993125",
+ "modified": "2020-09-03 11:59:24.370455",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

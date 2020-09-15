@@ -91,6 +91,7 @@
    "precision": "1"
   },
   {
+   "collapsible": 1,
    "fieldname": "sect_break3",
    "fieldtype": "Section Break",
    "label": "Troubleshooting"
@@ -128,7 +129,7 @@
   }
  ],
  "links": [],
- "modified": "2020-09-02 09:07:56.677410",
+ "modified": "2020-09-04 08:49:07.171355",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "TestBench Results",
