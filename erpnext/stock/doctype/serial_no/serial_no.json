@@ -49,6 +49,7 @@
   "sdc",
   "ethadapt",
   "col_brk4",
+  "sdcsp",
   "cssrpck",
   "purchase_details",
   "column_break2",
@@ -690,15 +691,22 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.item_code == \"CCVidtc\" || doc.product_type == \"V1 Camera\";",
    "fieldname": "s3m",
    "fieldtype": "Check",
    "label": "3MSlnt"
+  },
+  {
+   "default": "0",
+   "fieldname": "sdcsp",
+   "fieldtype": "Check",
+   "label": "SDCSp"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-09-14 13:55:42.310621",
+ "modified": "2020-09-18 10:10:52.797486",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

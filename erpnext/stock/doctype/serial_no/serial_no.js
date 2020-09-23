@@ -124,7 +124,8 @@ frappe.ui.form.on('Serial No', {
 									"soda_sd_no",
 									"bb_sd_no",
 									"ceth500",
-									"sdc"
+									"sdc",
+									"sdcsp"
 								],
 								filters: {name: table[i].serial_no}
 							},
@@ -134,10 +135,12 @@ frappe.ui.form.on('Serial No', {
 								var bb_sd_no = r.message.bb_sd_no;
 								var ceth500 = r.message.ceth500;
 								var sdc = r.message.sdc;
+								var sdcsp = r.message.sdcsp;
 								frm.set_value("soda_sd_no",soda_sd_no);
 								frm.set_value("bb_sd_no",bb_sd_no);
 								frm.set_value("ceth500",ceth500);
 								frm.set_value("sdc",sdc);
+								frm.set_value("sdcsp",sdcsp);
 							}
 						});
 					}
