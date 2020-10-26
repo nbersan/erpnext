@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "format: {time_zone} - {offset}",
+ "creation": "2020-10-09 14:29:07.276067",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "time_zone",
+  "offset"
+ ],
+ "fields": [
+  {
+   "fieldname": "time_zone",
+   "fieldtype": "Data",
+   "label": "Time Zone"
+  },
+  {
+   "fieldname": "offset",
+   "fieldtype": "Data",
+   "label": "GMT Offset"
+  }
+ ],
+ "links": [],
+ "modified": "2020-10-09 14:31:06.120598",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Time Zone",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
