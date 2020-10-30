@@ -162,14 +162,21 @@ frappe.ui.form.on('TestBench Results', {
 					counter++;
 					console.log("Comments");
 					frm.set_value("test_comments",1);
+					console.log(counter);
 				}
 				if(test_table[i].cam_tst === "Passed" && test_table[i].sys_tst === "Passed" && test_table[i].comments !== "None") {
+					counter++;
 					console.log("Comments");
 					frm.set_value("test_comments",1);
+					console.log(counter);
 				}
 			}
 			//If one record has a comment, set the testbench length to 6 days.
 			if(counter >= 1) {
+				tst_lg = 6;
+			}
+			//If the Comments checkbox is checked, set the testbench length to 6 days.
+			if(cur_frm.doc.test_comments === 1) {
 				tst_lg = 6;
 			}
 			//If no record has a comment, set the testbench length to 5 days.
