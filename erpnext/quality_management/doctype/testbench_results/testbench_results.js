@@ -31,6 +31,7 @@ frappe.ui.form.on('TestBench Results', {
 				cur_frm.set_value("camera_port",port);
 			}
 		});
+		frm.set_value("test_status","Not Started");
 	},
 	onload: function(frm,cdt,cdn) {
 		if(cur_frm.doc.test_status !== "Passed" && cur_frm.doc.test_status !== "On Hold") {

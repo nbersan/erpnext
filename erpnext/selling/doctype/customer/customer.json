@@ -194,8 +194,6 @@
    "fieldname": "customer_group",
    "fieldtype": "Link",
    "hidden": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Customer Group",
    "oldfieldname": "customer_group",
    "oldfieldtype": "Link",
@@ -206,8 +204,6 @@
    "fieldname": "territory",
    "fieldtype": "Link",
    "hidden": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Territory",
    "oldfieldname": "territory",
    "oldfieldtype": "Link",
@@ -662,6 +658,7 @@
   {
    "fieldname": "cam_back",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Cameras To Be Ret."
   },
   {
@@ -707,7 +704,7 @@
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-09-03 11:59:24.370455",
+ "modified": "2020-11-03 13:09:56.005978",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
