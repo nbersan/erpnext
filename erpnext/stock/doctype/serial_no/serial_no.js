@@ -78,19 +78,17 @@ frappe.ui.form.on('Serial No', {
 			if(table.length !== 0) {
 				//For all the records in the table, set the serial no status to "Used".
 				for (var i = 0; i < table.length; i++) {
-					if(cur_frm.doc.status !== "WIP"){
-						frappe.call({
-							method: "frappe.client.set_value",
-							args: {
-								doctype: "Serial No",
-								name: table[i].serial_no,
-								fieldname: {
-									status: "Used",
-									parent_item_serial_no: cur_frm.doc.serial_no
-								}
+					frappe.call({
+						method: "frappe.client.set_value",
+						args: {
+							doctype: "Serial No",
+							name: table[i].serial_no,
+							fieldname: {
+								status: "Used",
+								parent_item_serial_no: cur_frm.doc.serial_no
 							}
-						});
-					}
+						}
+					});
 					if(table[i].item_code === "CCVidtc") {
 						frappe.call({
 							method: "frappe.client.get_value",
