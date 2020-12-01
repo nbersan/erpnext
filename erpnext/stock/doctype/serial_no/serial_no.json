@@ -37,9 +37,9 @@
   "sub_items",
   "item_details",
   "sc_break1",
-  "soda_sd_no",
-  "column_break01",
   "bb_sd_no",
+  "column_break01",
+  "soda_sd_no",
   "vs_attr",
   "s3m",
   "pv",
@@ -687,7 +687,7 @@
    "fieldname": "state",
    "fieldtype": "Select",
    "label": "State",
-   "options": "To Refurbish\nOffline\nOnline\nUnder Testing\nReady\nShipped\nWIP Need Case\nEmpty\nTo Investigate\nTradeshow\nCommitted\nOn Site\nR&D\nWIP\nBroken\nTo Be Tested\nLost\nFree\nUsed"
+   "options": "To Refurbish\nOffline\nTo Build\nOnline\nUnder Testing\nReady\nShipped\nWIP Need Case\nEmpty\nTo Investigate\nTradeshow\nCommitted\nOn Site\nR&D\nWIP\nBroken\nTo Be Tested\nLost\nFree\nUsed"
   },
   {
    "default": "0",
@@ -706,7 +706,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-09-18 10:10:52.797486",
+ "modified": "2020-11-09 12:22:33.845257",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",
