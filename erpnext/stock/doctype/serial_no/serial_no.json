@@ -222,10 +222,12 @@
   {
    "fieldname": "purchase_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Creation Date",
    "no_copy": 1,
    "oldfieldname": "purchase_date",
-   "oldfieldtype": "Date"
+   "oldfieldtype": "Date",
+   "search_index": 1
   },
   {
    "fieldname": "purchase_time",
@@ -617,6 +619,7 @@
   },
   {
    "default": "0",
+   "depends_on": "eval: doc.item_code !== \"CCV1KCV\" && (doc.item_code == \"CCVidtc\" || doc.product_type == \"V1 Camera\");",
    "fieldname": "sma",
    "fieldtype": "Check",
    "label": "CnSMAWtpf"
@@ -691,7 +694,7 @@
   },
   {
    "default": "0",
-   "depends_on": "eval: doc.item_code == \"CCVidtc\" || doc.product_type == \"V1 Camera\";",
+   "depends_on": "eval: doc.item_code !== \"CCV1KCV\" && (doc.item_code == \"CCVidtc\" || doc.product_type == \"V1 Camera\");",
    "fieldname": "s3m",
    "fieldtype": "Check",
    "label": "3MSlnt"
@@ -706,7 +709,7 @@
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-11-09 12:22:33.845257",
+ "modified": "2020-12-15 14:12:57.471661",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

@@ -20,14 +20,15 @@ let is_v1;
 let tst_port;
 
 frappe.ui.form.on('Serial No', {
-	refresh: function(frm) {
+	refresh: function(frm,cdt,cdn) {
+		var d = locals[cdt][cdn];
 		if(cur_frm.doc.state !== cur_frm.doc.status) {
 			frm.set_value("state", cur_frm.doc.status);
 		}
-		if(cur_frm.doc.item_code === "SDCID") {
+		/*if(cur_frm.doc.item_code === "SDCID") {
 			let sd_no = cur_frm.doc.name.substr(cur_frm.doc.name.length-3);
 			frm.set_value("sd_no",sd_no);
-		}
+		}*/
 		tst_port = cur_frm.doc.cam_port;
 		frm.toggle_enable("item_code", frm.doc.__islocal);
 		table = cur_frm.doc.item_details;
@@ -43,9 +44,12 @@ frappe.ui.form.on('Serial No', {
 			});
 			//Filter the proposed values for the "serial_no" field in the "item_details" table.
 			frm.fields_dict.item_details.grid.get_field("serial_no").get_query = function(doc,cdt,cdn) {
+				console.log(child);
+				var child = locals[cdt][cdn];
 				return {
 					filters: [
-						["Serial No", "status", "in", ["Free", "WIP Need Case", "WIP"]]
+						["Serial No", "status", "in", ["Free", "WIP Need Case", "WIP"]],
+						["Serial No", "item_code", "in", child.item_code]
 					]
 				};
 			};
@@ -61,7 +65,7 @@ frappe.ui.form.on('Serial No', {
 			if (cur_frm.doc.status==="WIP"||cur_frm.doc.status==="WIP Need Case"||cur_frm.doc.status==="To Investigate"||cur_frm.doc.status==="To Be Tested") {
 				frm.set_value("cc_location", "Workshop - Lausanne");
 			}
-			//If the camera port field is not empty and not qual to "CC-NoPort, set the port status to "Used". 
+			//If the camera port field is not empty and not equal to "CC-NoPort, set the port status to "Used". 
 			if(cur_frm.doc.cam_port.length !== 0 && cur_frm.doc.cam_port !== "CC-NoPort") {
 				frappe.call({
 					method: "frappe.client.set_value",
@@ -78,17 +82,31 @@ frappe.ui.form.on('Serial No', {
 			if(table.length !== 0) {
 				//For all the records in the table, set the serial no status to "Used".
 				for (var i = 0; i < table.length; i++) {
-					frappe.call({
-						method: "frappe.client.set_value",
-						args: {
-							doctype: "Serial No",
-							name: table[i].serial_no,
-							fieldname: {
-								status: "Used",
-								parent_item_serial_no: cur_frm.doc.serial_no
+					if(table[i].item_code !== "CCV1SDV" && cur_frm.doc.status !== "WIP") {
+						frappe.call({
+							method: "frappe.client.set_value",
+							args: {
+								doctype: "Serial No",
+								name: table[i].serial_no,
+								fieldname: {
+									status: "Used",
+									parent_item_serial_no: cur_frm.doc.serial_no
+								}
 							}
-						}
-					});
+						});
+					}
+					if(table[i].item_code === "CCV1SDV" && cur_frm.doc.status === "WIP") {
+						frappe.call({
+							method: "frappe.client.set_value",
+							args: {
+								doctype: "Serial No",
+								name: table[i].serial_no,
+								fieldname: {
+									parent_item_serial_no: cur_frm.doc.serial_no
+								}
+							}
+						});
+					}
 					if(table[i].item_code === "CCVidtc") {
 						frappe.call({
 							method: "frappe.client.get_value",
@@ -174,4 +192,5 @@ frappe.ui.form.on('Crane Camera Item', {
 			});
 		});
 	}
+	
 });
