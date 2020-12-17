@@ -55,6 +55,7 @@
   "items_section",
   "scan_barcode",
   "items",
+  "desc",
   "section_break_48",
   "pricing_rules",
   "raw_material_details",
@@ -1048,13 +1049,19 @@
    "in_standard_filter": 1,
    "label": "Payment",
    "read_only": 1
+  },
+  {
+   "fieldname": "desc",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "Description"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-05-19 15:31:08.943487",
+ "modified": "2020-12-17 07:51:56.187945",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",
