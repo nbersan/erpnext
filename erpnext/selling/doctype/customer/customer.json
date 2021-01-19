@@ -58,6 +58,8 @@
   "cam_assigned",
   "sc_brk3",
   "cam_ass_back",
+  "out_cse",
+  "out_cse_site",
   "allowed_to_transact_section",
   "companies",
   "currency_and_price_list",
@@ -96,8 +98,7 @@
   "default_commission_rate",
   "sales_team_section",
   "sales_team",
-  "customer_pos_id",
-  "data_84"
+  "customer_pos_id"
  ],
  "fields": [
   {
@@ -674,10 +675,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "data_84",
-   "fieldtype": "Data"
-  },
-  {
    "collapsible": 1,
    "fieldname": "sc_brk3",
    "fieldtype": "Section Break",
@@ -698,13 +695,23 @@
    "fieldname": "cam_assi",
    "fieldtype": "Data",
    "label": "Cameras Assigned"
+  },
+  {
+   "fieldname": "out_cse",
+   "fieldtype": "Section Break",
+   "label": "Outdoor Case"
+  },
+  {
+   "fieldname": "out_cse_site",
+   "fieldtype": "Data",
+   "label": "Outdoor Cases On Site"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-11-03 13:09:56.005978",
+ "modified": "2020-12-17 13:30:44.632299",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

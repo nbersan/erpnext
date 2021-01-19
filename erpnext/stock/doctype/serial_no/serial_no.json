@@ -21,6 +21,7 @@
   "cam_port",
   "case_v",
   "on_site",
+  "safety_stock",
   "column_break1",
   "sd_type",
   "vs",
@@ -546,8 +547,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Product Type",
-   "options": "Product Type",
-   "read_only": 1
+   "options": "Product Type"
   },
   {
    "depends_on": "eval:(doc.item_group == \"Full Systems\" && doc.status != \"Shipped\")",
@@ -704,12 +704,19 @@
    "fieldname": "sdcsp",
    "fieldtype": "Check",
    "label": "SDCSp"
+  },
+  {
+   "fetch_from": "item_code.safety_stock",
+   "fieldname": "safety_stock",
+   "fieldtype": "Data",
+   "label": "Safety Stock",
+   "length": 1
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2020-12-15 14:12:57.471661",
+ "modified": "2021-01-19 13:55:24.962023",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

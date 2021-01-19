@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2015-02-17 01:06:05.072764",
  "doctype": "DocType",
  "document_type": "Other",
@@ -56,6 +57,7 @@
   },
   {
    "columns": 3,
+   "default": "Stores - PIX",
    "fieldname": "warehouse",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -169,7 +171,8 @@
   }
  ],
  "istable": 1,
- "modified": "2019-06-14 17:10:53.188305",
+ "links": [],
+ "modified": "2021-01-12 08:59:48.692926",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Reconciliation Item",

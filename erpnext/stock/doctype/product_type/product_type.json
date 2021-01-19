@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:product_type",
  "creation": "2020-01-09 06:30:27.670991",
  "description": "Workflow state represents the current state of a document.",
@@ -23,7 +24,7 @@
  ],
  "icon": "fa fa-flag",
  "links": [],
- "modified": "2020-01-09 14:35:02.392353",
+ "modified": "2021-01-14 12:40:29.362952",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Product Type",
