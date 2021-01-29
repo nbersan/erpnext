@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "field:site",
+ "creation": "2021-01-29 10:44:31.102360",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "site",
+  "status",
+  "col_brk1",
+  "customer",
+  "cam",
+  "sdv",
+  "col_brk2",
+  "wcv",
+  "col_brk3",
+  "kcv"
+ ],
+ "fields": [
+  {
+   "fieldname": "site",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Site",
+   "unique": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nDone\nCancelled"
+  },
+  {
+   "fieldname": "col_brk1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "cam",
+   "fieldtype": "Section Break",
+   "label": "Cameras "
+  },
+  {
+   "fieldname": "sdv",
+   "fieldtype": "Data",
+   "label": "SDV"
+  },
+  {
+   "fieldname": "col_brk2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wcv",
+   "fieldtype": "Data",
+   "label": "WCV"
+  },
+  {
+   "fieldname": "col_brk3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kcv",
+   "fieldtype": "Data",
+   "label": "KCV"
+  }
+ ],
+ "links": [],
+ "modified": "2021-01-29 10:53:13.083889",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Customer Project",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

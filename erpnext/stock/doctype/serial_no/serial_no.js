@@ -65,7 +65,7 @@ frappe.ui.form.on('Serial No', {
 			if (cur_frm.doc.status==="WIP"||cur_frm.doc.status==="WIP Need Case"||cur_frm.doc.status==="To Investigate"||cur_frm.doc.status==="To Be Tested") {
 				frm.set_value("cc_location", "Workshop - Lausanne");
 			}
-			//If the camera port field is not empty and not equal to "CC-NoPort, set the port status to "Used". 
+			//If the camera port field is not empty and not equal to "CC-NoPort, set the port status to "Used".
 			if(cur_frm.doc.cam_port.length !== 0 && cur_frm.doc.cam_port !== "CC-NoPort") {
 				frappe.call({
 					method: "frappe.client.set_value",
@@ -82,7 +82,8 @@ frappe.ui.form.on('Serial No', {
 			if(table.length !== 0) {
 				//For all the records in the table, set the serial no status to "Used".
 				for (var i = 0; i < table.length; i++) {
-					if(table[i].item_code !== "CCV1SDV" && cur_frm.doc.status !== "WIP") {
+					//If not SDV set Serial No Status to "Used".
+					if(table[i].item_code !== "CCV1SDV") {
 						frappe.call({
 							method: "frappe.client.set_value",
 							args: {
@@ -95,6 +96,38 @@ frappe.ui.form.on('Serial No', {
 							}
 						});
 					}
+					//If SDV, tick the checkboxes corresponding in the parent page.
+					else {
+						frappe.call({
+							method: "frappe.client.get_value",
+							args: {
+								doctype: "Serial No",
+								fieldname: [
+									"soda_sd_no",
+									"bb_sd_no",
+									"ceth500",
+									"sdc",
+									"sdcsp"
+								],
+								filters: {name: table[i].serial_no}
+							},
+							callback: function(r) {
+								console.log("CCV1SDV");
+								console.log(r.message);
+								var soda_sd_no = r.message.soda_sd_no;
+								var bb_sd_no = r.message.bb_sd_no;
+								var ceth500 = r.message.ceth500;
+								var sdc = r.message.sdc;
+								var sdcsp = r.message.sdcsp;
+								frm.set_value("soda_sd_no", soda_sd_no);
+								frm.set_value("bb_sd_no", bb_sd_no);
+								frm.set_value("ceth500", ceth500);
+								frm.set_value("sdc", sdc);
+								frm.set_value("sdcsp", sdcsp);
+							}
+						});
+					}
+					//Set Serial No parent field in child page.
 					if(table[i].item_code === "CCV1SDV" && cur_frm.doc.status === "WIP") {
 						frappe.call({
 							method: "frappe.client.set_value",
@@ -105,8 +138,30 @@ frappe.ui.form.on('Serial No', {
 									parent_item_serial_no: cur_frm.doc.serial_no
 								}
 							}
-						});
+						});/*
+						frappe.call({
+							method: "frappe.client.get_value",
+							args: {
+								doctype: "Serial No",
+								fieldname: [
+									"soda_sd_no",
+									"bb_sd_no",
+									"ceth500",
+									"sdc",
+									"sdcsp"
+								],
+								filters: {name: table[i].serial_no}
+							},
+							callback: function(r) {
+								var soda_sd_no = r.message.soda_sd_no;
+								var bb_sd_no = r.message.bb_sd_no;
+								var ceth500 = r.message.ceth500;
+								var sdc = r.message.sdc;
+								var sdcsp = r.message.sdcsp;
+							}
+						});*/
 					}
+					//If CCVidtc, tick checkboxes corresponding in the parent page.
 					if(table[i].item_code === "CCVidtc") {
 						frappe.call({
 							method: "frappe.client.get_value",
@@ -130,35 +185,6 @@ frappe.ui.form.on('Serial No', {
 								//frm.set_value("pv",pv);
 								//frm.set_value("sma",sma);
 								//frm.set_value("ethadapt",ethadapt);
-							}
-						});
-					}
-					if(table[i].item_code === "CCV1SDV") {
-						frappe.call({
-							method: "frappe.client.get_value",
-							args: {
-								doctype: "Serial No",
-								fieldname: [
-									"soda_sd_no",
-									"bb_sd_no",
-									"ceth500",
-									"sdc",
-									"sdcsp"
-								],
-								filters: {name: table[i].serial_no}
-							},
-							callback: function(r) {
-								console.log(r.message);
-								var soda_sd_no = r.message.soda_sd_no;
-								var bb_sd_no = r.message.bb_sd_no;
-								var ceth500 = r.message.ceth500;
-								var sdc = r.message.sdc;
-								var sdcsp = r.message.sdcsp;
-								frm.set_value("soda_sd_no",soda_sd_no);
-								frm.set_value("bb_sd_no",bb_sd_no);
-								frm.set_value("ceth500",ceth500);
-								frm.set_value("sdc",sdc);
-								frm.set_value("sdcsp",sdcsp);
 							}
 						});
 					}
@@ -192,5 +218,4 @@ frappe.ui.form.on('Crane Camera Item', {
 			});
 		});
 	}
-	
 });

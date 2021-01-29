@@ -54,10 +54,7 @@ frappe.ui.form.on('TestBench Results', {
 			tot_number = 0;
 			tst_st_day = moment(cur_frm.doc.st_dte).format("dddd");
 			console.log(tst_st_day + " cest le bon");
-			//console.log(cur_frm.doc.st_dte + " was " + tst_st_day);
-			//console.log(typeof(cur_frm.doc.st_dte));
 			frm.set_value("tot_number",0);
-			//frm.set_value("st_dte",tst_st);
 
 			//If no records in the testbench table, set the testbench status as "Not Started".
 			if(cur_frm.doc.testbench_results_detail.length === 0) {
@@ -115,17 +112,11 @@ frappe.ui.form.on('TestBench Results', {
 						console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
 						frm.set_value("tot_number", test_table[i].number_passed);
 					}
-					//test_table[i].number_passed = test_table[i-1].number_passed +1;
-					//console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
-					//tot_number++;
-					//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
 				}
 				//If one of the tests failed, set "tot_number" to 0, set "id_fail" to "row id + 1" and increase by 1 "fail".
 				if(test_table[i].cam_tst === "Failed" || test_table[i].sys_tst === "Failed" || test_table[i].mdm_tst === "Failed") {
 					test_table[i].number_passed = 0;
 					console.log("number_passed + Row ID: "+test_table[i].number_passed+" "+test_table[i].idx);
-					//tot_number = 0;
-					//console.log("Tot_number + Row ID: "+tot_number+" "+test_table[i].idx);
 					id_fail = test_table[i].idx + 1;
 					fail++;
 					frm.set_value("tot_number", test_table[i].number_passed);
@@ -274,7 +265,8 @@ frappe.ui.form.on('TestBench Results', {
 					doctype: "Serial No",
 					name: cur_frm.doc.camera_serial,
 					fieldname: {
-						status: "Under Testing"
+						status: "Under Testing",
+						testbench: cur_frm.doc.name
 					}
 				}
 			});
@@ -293,7 +285,6 @@ frappe.ui.form.on('TestBench Results', {
 		}
 	},
 	refresh: function(frm) {
-		//test_table = cur_frm.doc.testbench_results_detail;
 		let day_event;
 		frappe.call({
 			method: "frappe.client.get_count",
@@ -303,7 +294,6 @@ frappe.ui.form.on('TestBench Results', {
 				fieldname: ["name","subject"]
 			},
 			callback: function(r){
-				//console.log(r.message);
 				day_event = r.message;
 				console.log(day_event);
 				if (day_event === 1 && moment(cur_frm.doc.end_dte).format("dddd") === "Friday" && cur_frm.doc.blck_end_dte !== 1) {
@@ -316,39 +306,6 @@ frappe.ui.form.on('TestBench Results', {
 				}
 			}
 		});
-		/*for (var j = 0; j < test_table.length; j++){
-			if (test_table[j].idx === test_table.length) {
-				var day_after = moment(frappe.datetime.add_days(test_table[j].date,1)).format("dddd");
-				console.log("Day After "+day_after);
-				var day_after_dte = moment(frappe.datetime.add_days(test_table[j].date,1)).format("YYYY-MM-DD");
-				var days_left = tst_lg - test_table[j].number_passed;
-				console.log(days_left);
-				if (moment().isAfter(day_after_dte) === "true"){
-					console.log("is after");
-				}
-				frappe.call({
-					method: "frappe.client.get_count",
-					args: {
-						doctype: "Event",
-						filters: {'starts_on': frappe.datetime.add_days(test_table[j].date,1)},
-						fieldname: ["name","subject"]
-					},
-					callback: function(r){
-						console.log("event tomorrow " + r.message);
-						console.log(tst_lg);
-						last_row === r.message;
-						//if (r.message === 1 && moment(frappe.datetime.add_days(test_table[j].date,1)).format("dddd") === "Friday") {
-						if (r.message === 1 && day_after === "Friday") {
-							frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,4+days_left));
-							console.log("Tomorrow is Friday");
-						}
-						if (last_row === 1 && moment(frappe.datetime.add_days(test_table[j].date,1)).format("dddd") !== "Friday") {
-							frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,2));
-						}
-					}
-				});
-			}
-		}*/
 		if (moment(cur_frm.doc.end_dte).format("dddd") === "Saturday" && cur_frm.doc.blck_end_dte !== 1) {
 			frm.set_value("end_dte",frappe.datetime.add_days(cur_frm.doc.end_dte,2));
 		}

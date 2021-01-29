@@ -68,13 +68,13 @@ frappe.ui.form.on("Project", {
 				frm.events.create_duplicate(frm);
 			});
 
-			frm.add_custom_button(__('Completed'), () => {
-				frm.events.set_status(frm, 'Completed');
-			}, __('Set Status'));
+//			frm.add_custom_button(__('Completed'), () => {
+//				frm.events.set_status(frm, 'Completed');
+//			}, __('Set Status'));
 
-			frm.add_custom_button(__('Cancelled'), () => {
-				frm.events.set_status(frm, 'Cancelled');
-			}, __('Set Status'));
+//			frm.add_custom_button(__('Cancelled'), () => {
+//				frm.events.set_status(frm, 'Cancelled');
+//			}, __('Set Status'));
 		}
 
 		if (frappe.model.can_read("Task")) {
@@ -111,12 +111,12 @@ frappe.ui.form.on("Project", {
 		});
 	},
 
-	set_status: function(frm, status) {
+/*	set_status: function(frm, status) {
 		frappe.confirm(__('Set Project and all Tasks to status {0}?', [status.bold()]), () => {
 			frappe.xcall('erpnext.projects.doctype.project.project.set_project_status',
-				{project: frm.doc.name, status: status}).then(() => { /* page will auto reload */ });
+				{project: frm.doc.name, status: status}).then(() => {  page will auto reload  });
 		});
-	},
+	},*/
 
 });
 

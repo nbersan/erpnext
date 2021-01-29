@@ -4,11 +4,8 @@ frappe.listview_settings['Project'] = {
 	get_indicator: function(doc) {
 		return [__(doc.status), {
 			"Open": "red",
-			"Cameras Assigned": "orange",
 			"In Progress": "yellow",
-			"Need Replacement Cameras": "orange",
-			"Cameras Return": "blue",
-			"Completed": "green",
+			"Done": "green",
 			"Cancelled": "red"
 		}[doc.status],"status,=,"+ doc.status];
 /*		if(doc.status=="Open" && doc.percent_complete) {

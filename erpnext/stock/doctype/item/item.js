@@ -2,7 +2,7 @@
 // License: GNU General Public License v3. See license.txt
 
 frappe.provide("erpnext.item");
-
+let table;
 frappe.ui.form.on("Item", {
 	setup: function(frm) {
 		frm.add_fetch('attribute', 'numeric_values', 'numeric_values');
@@ -122,6 +122,76 @@ frappe.ui.form.on("Item", {
 		});
 
 		frm.toggle_reqd('customer', frm.doc.is_customer_provided_item ? 1:0);
+
+		//Custom Code.
+		frappe.call({
+			method: "frappe.client.get_list",
+			args: {
+				doctype: "Serial No",
+				filters: {
+					item_code: cur_frm.doc.item_code
+				},
+				fields: ["name"]
+			},
+			callback: function(r) {
+				table = r.message;
+				for (var i = 0; i < table.length; i++) {
+					frappe.call({
+						method: "frappe.client.set_value",
+						args: {
+							doctype: "Serial No",
+							name: table[i].name,
+							fieldname: {
+								product_type: cur_frm.doc.product_type,
+							}
+						}
+					});
+				}
+			}
+		});
+	},
+
+	has_serial_no: function(frm) {
+		frappe.call({
+			method: "frappe.client.get_list",
+			args: {
+				doctype: "Item",
+				filters: {
+					item_group: "Products",
+					has_serial_no: 1
+				},
+				fields: ["serial_no_series"],
+				limit_page_length: 1,
+				order_by: "serial_no_series desc",
+				as_list: true
+			},
+			callback: function(r) {
+				var a = r.message;
+				var serie = a[0]["serial_no_series"];
+				let first_s = serie.substring(0,1).charCodeAt(0);
+				let scnd_s = serie.substring(1,2).charCodeAt(0);
+				let thrd_s = serie.substring(2,3).charCodeAt(0);
+				if (thrd_s <= 89) {
+					let new_first_s = String.fromCharCode(first_s);
+					let new_scnd_s = String.fromCharCode(scnd_s);
+					let new_thrd_s = String.fromCharCode(thrd_s + 1);
+					let new_serial = new_first_s.concat(new_scnd_s, new_thrd_s, ".####");
+					cur_frm.set_value("serial_no_series", new_serial);
+				} else if (thrd_s >= 90) {
+					let new_first_s = String.fromCharCode(first_s);
+					let new_scnd_s = String.fromCharCode(scnd_s + 1);
+					let new_thrd_s = String.fromCharCode(65);
+					let new_serial = new_first_s.concat(new_scnd_s, new_thrd_s, ".####");
+					cur_frm.set_value("serial_no_series", new_serial);
+				} else if (thrd_s >= 90 && scnd >= 90) {
+					let new_first_s = String.fromCharCode(first_s + 1);
+					let new_scnd_s = String.fromCharCode(65);
+					let new_thrd_s = String.fromCharCode(65);
+					let new_serial = new_first_s.concat(new_scnd_s, new_thrd_s, ".####");
+					cur_frm.set_value("serial_no_series", new_serial);
+				}
+			}
+		});
 	},
 
 	validate: function(frm){

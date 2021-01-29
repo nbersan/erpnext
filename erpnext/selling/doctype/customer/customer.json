@@ -228,7 +228,6 @@
    "default": "0",
    "fieldname": "disabled",
    "fieldtype": "Check",
-   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Disabled"
   },
@@ -565,7 +564,7 @@
    "fieldname": "cam_assigned",
    "fieldtype": "Table",
    "label": "Cameras Assigned",
-   "options": "Customer Cameras Assigned"
+   "options": "Cust Cameras Assigned"
   },
   {
    "fieldname": "wcv_needed",
@@ -711,7 +710,7 @@
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2020-12-17 13:30:44.632299",
+ "modified": "2021-01-27 12:52:35.460841",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

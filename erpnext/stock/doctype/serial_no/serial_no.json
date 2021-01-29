@@ -22,6 +22,7 @@
   "case_v",
   "on_site",
   "safety_stock",
+  "testbench",
   "column_break1",
   "sd_type",
   "vs",
@@ -533,7 +534,7 @@
    "label": "IMEI No"
   },
   {
-   "depends_on": "eval:doc.item_group == \"Full Systems\"",
+   "depends_on": "eval:doc.item_group == \"Full Systems\" && (doc.status === \"Committed\" || doc.status === \"Shipped\") === true",
    "fieldname": "on_site",
    "fieldtype": "Data",
    "in_filter": 1,
@@ -708,15 +709,22 @@
   {
    "fetch_from": "item_code.safety_stock",
    "fieldname": "safety_stock",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
+   "hidden": 1,
    "label": "Safety Stock",
-   "length": 1
+   "length": 10
+  },
+  {
+   "fieldname": "testbench",
+   "fieldtype": "Link",
+   "label": "TestBench",
+   "options": "TestBench Results"
   }
  ],
  "icon": "fa fa-barcode",
  "idx": 1,
  "links": [],
- "modified": "2021-01-19 13:55:24.962023",
+ "modified": "2021-01-22 11:47:19.114266",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No",

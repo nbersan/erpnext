@@ -59,7 +59,7 @@ frappe.ui.form.on("Purchase Order", {
 		}
 	},
 
-	onload: function(frm) {
+	onload: function(frm,cdn,cdt) {
 		set_schedule_date(frm);
 		if (!frm.doc.transaction_date){
 			frm.set_value('transaction_date', frappe.datetime.get_today())
@@ -68,6 +68,26 @@ frappe.ui.form.on("Purchase Order", {
 		erpnext.queries.setup_queries(frm, "Warehouse", function() {
 			return erpnext.queries.warehouse(frm.doc);
 		});
+		//Custom script.
+		if (cur_frm.doc.status !== "To Bill" && cur_frm.doc.status !== "To Receive and Bill") {
+			frappe.call({
+				method: "frappe.client.get_value",
+				args: {
+					doctype: "Purchase Invoice",
+					fieldname: "mode_of_payment",
+					filters: {supplier: cur_frm.doc.supplier, rounded_total: cur_frm.doc.grand_total},
+				},
+				callback: function(r) {
+					console.log(r.message.mode_of_payment);
+					frm.set_value("payment", r.message.mode_of_payment);
+				}
+			});
+		} else {
+			frm.set_value("payment", "Wire Transfer");
+		}
+		if (cur_frm.doc.status !== "Draft") {
+			cur_frm.save('Update');
+		}
 	}
 });
 
