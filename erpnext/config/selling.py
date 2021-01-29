@@ -16,6 +16,7 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Customer Project",
+					"description": _("Customer Project."),
 					"onboard": 1,
 				},
 				{
