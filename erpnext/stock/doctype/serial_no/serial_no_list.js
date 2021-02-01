@@ -19,7 +19,8 @@ frappe.listview_settings['Serial No'] = {
 			"Ready": "green",
 			"Shipped": "blue",
 			"To Refurbish": "yellow",
-			"To Build": "yellow"
+			"To Build": "yellow",
+			"Old": "red"
 		}[doc.status],"status,=,"+ doc.status];
 		return [__(doc.under_test_state), {
 			"Online": "green",

@@ -188,6 +188,11 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "SD Card",
+					"onboard": 1,
+				},
+				{
+					"type": "doctype",
 					"name": "Batch",
 					"onboard": 1,
 					"dependencies": ["Item"],

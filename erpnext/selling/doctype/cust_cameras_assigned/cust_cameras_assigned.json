@@ -92,13 +92,14 @@
   },
   {
    "fieldname": "cc_loc",
-   "fieldtype": "Select",
-   "label": "CC Location"
+   "fieldtype": "Link",
+   "label": "CC Location",
+   "options": "Customer Project"
   }
  ],
  "istable": 1,
  "links": [],
- "modified": "2021-01-25 15:01:37.839382",
+ "modified": "2021-01-29 12:08:34.954118",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Cust Cameras Assigned",

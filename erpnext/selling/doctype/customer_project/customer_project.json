@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "field:site",
  "creation": "2021-01-29 10:44:31.102360",
  "doctype": "DocType",
@@ -12,12 +13,19 @@
   "status",
   "col_brk1",
   "customer",
+  "customer_name",
   "cam",
   "sdv",
   "col_brk2",
   "wcv",
   "col_brk3",
-  "kcv"
+  "kcv",
+  "prod_det",
+  "group_id",
+  "user_email",
+  "col_brk4",
+  "time_zone",
+  "attach"
  ],
  "fields": [
   {
@@ -34,7 +42,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Open\nIn Progress\nDone\nCancelled"
+   "options": "Open\nIn Progress\nDone\nCancelled\nOn Hold"
   },
   {
    "fieldname": "col_brk1",
@@ -75,10 +83,45 @@
    "fieldname": "kcv",
    "fieldtype": "Data",
    "label": "KCV"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "prod_det",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "group_id",
+   "fieldtype": "Data",
+   "label": "Group ID"
+  },
+  {
+   "fieldname": "user_email",
+   "fieldtype": "Data",
+   "label": "User Email"
+  },
+  {
+   "fieldname": "col_brk4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time_zone",
+   "fieldtype": "Data",
+   "label": "Time Zone"
+  },
+  {
+   "fieldname": "attach",
+   "fieldtype": "Attach",
+   "label": "Attachments"
   }
  ],
+ "icon": "fa fa-user",
  "links": [],
- "modified": "2021-01-29 11:11:46.134357",
+ "modified": "2021-02-01 08:55:27.006269",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer Project",

@@ -60,6 +60,8 @@
   "cam_ass_back",
   "out_cse",
   "out_cse_site",
+  "scbrk",
+  "proj_done",
   "allowed_to_transact_section",
   "companies",
   "currency_and_price_list",
@@ -542,7 +544,6 @@
    "options": "Customer Credit Limit"
   },
   {
-   "collapsible": 1,
    "fieldname": "sect_brk1",
    "fieldtype": "Section Break",
    "label": "Cameras Needed"
@@ -704,13 +705,23 @@
    "fieldname": "out_cse_site",
    "fieldtype": "Data",
    "label": "Outdoor Cases On Site"
+  },
+  {
+   "fieldname": "scbrk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "proj_done",
+   "fieldtype": "Table",
+   "label": "Projects Done",
+   "options": "Customer Project Done"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "links": [],
- "modified": "2021-01-27 12:52:35.460841",
+ "modified": "2021-01-29 15:09:11.627037",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",

@@ -74,6 +74,11 @@ frappe.ui.form.on("Customer", {
 				total_sdv += d.sdv_nd;
 			}
 		});
+		cur_frm.doc.proj_done.forEach(function(d) {
+			if (d.sdv_nd !== 0) {
+				total_sdv += d.sdv_nd;
+			}
+		});
 		var total_sdv_nd = 0;
 		cur_frm.doc.cam_nd.forEach(function(d) {
 			if (d.status !== "Done" && d.sdv_nd !== 0) {
@@ -114,6 +119,11 @@ frappe.ui.form.on("Customer", {
 		//Check in the projects table the quantity of cameras needed for Open Projects.
 		var total_wcv = 0;
 		cur_frm.doc.cam_nd.forEach(function(d) {
+			if (d.wcv_nd !== 0) {
+				total_wcv += d.wcv_nd;
+			}
+		});
+		cur_frm.doc.proj_done.forEach(function(d) {
 			if (d.wcv_nd !== 0) {
 				total_wcv += d.wcv_nd;
 			}
@@ -162,6 +172,11 @@ frappe.ui.form.on("Customer", {
 		//Check in the projects table the quantity of cameras needed for Open Projects.
 		var total_kcv = 0;
 		cur_frm.doc.cam_nd.forEach(function(d) {
+			if (d.kcv_nd !== 0) {
+				total_kcv += d.kcv_nd;
+			}
+		});
+		cur_frm.doc.proj_done.forEach(function(d) {
 			if (d.kcv_nd !== 0) {
 				total_kcv += d.kcv_nd;
 			}
